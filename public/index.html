@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Simple Spotify Stat Page</title>
-    <link rel="stylesheet" href="dist/css/main.css" />
+    <link rel="stylesheet" src="../dist/css/main.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <style type="text/css">
       #login, #loggedin {
@@ -15,7 +15,7 @@
         width: 500px;
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="/dist/css/heroWave.css">
+    <link rel="stylesheet" src="../dist/css/heroWave.css">
   </head>
 
   <body>
@@ -63,10 +63,19 @@
         <dt>{{artists}}</dt><dd class="text-overflow">{{refresh_token}}</dd>
       </dl>
     </script>
+
+        <script id="recent-tracks-template" type="text/x-handlebars-template">
+          <h2>Your Recently Played Tracks</h2>
+          {{#each track}}
+          <ul class="recent-tracks">
+            <li>{{ind_track}}</li>
+          </ul>
+          {{/each}}
+        </script>
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="../app.js"></script>
+    <script src="../dist/css/heroWave.css"></script>
 
     <script>
         (function() {
@@ -130,8 +139,17 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  console.log(response)
-                  
+                  var recentTracks = response.items
+                  // let recTracks = document.createElement('ul')
+                  var template = document.getElementById('recent-tracks-template').innerHTML;
+                  var renderTrack = Handlebars.compile(template)
+                  for (let indTrack in recentTracks){
+                    // let indTrack = document.createElement('li')
+                    // recTracks.appendChild(indTrack)
+                    indTrack.innerHTML = recentTracks[indTrack].track.name
+                    // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
+                    console.log(recentTracks[indTrack].track.name)
+                  }
                 }
             });
           } else {
