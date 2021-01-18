@@ -2,3 +2,5 @@
 node_modules
 package-lock.json
 yarn.lock
+prepros-6.config
+prepros.config
