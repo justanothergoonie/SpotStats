@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss","main.css"],"names":[],"mappings":"AAAA;CACC,sBAAsB;ACCvB","file":"main.css","sourcesContent":["section {\n\tbackground-color: blue;\n}\n","section {\n\tbackground-color: blue;\n}\n"]}
