@@ -115,8 +115,9 @@ h1{
 }
 
 .waveHero{
-	width: 100%;
+	width: fit-content;
 	height: 20em;
+	position: relative;
 }
 
 .btn{
