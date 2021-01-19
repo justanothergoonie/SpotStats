@@ -4,8 +4,7 @@
     <title>Simple Spotify Stat Page</title>
     <!-- <base href="/"> -->
     <link rel="stylesheet" type="text/css" href="../dist/css/main.css" /> 
-    <link rel="stylesheet" type="text/css" href="../dist/css/heroWave.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
     
     
     <style type="text/css">
@@ -26,9 +25,27 @@
     
     <div class="container">
       <div id="login">
-        <h1>This is an example of simple Spotify stats</h1>
+        <div class="headbar">
+          <div class="headlogo">
+            <div class="boxContainer">
+              <div class="box box1"></div>
+              <div class="box box2"></div>
+              <div class="box box3"></div>
+              <div class="box box4"></div>
+              <div class="box box5"></div>
+            </div>
+            <h1>Stats for Spotify</h1>
+          </div>
+          <a href="/login">login</a>
+        </div>
+
+        <div class="waveHero">
+          <canvas id="canvas"></canvas>
+        </div>
+
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
       </div>
+
       <div id="loggedin">
         <div id="user-profile">
         </div>
@@ -38,7 +55,7 @@
       </div>
     </div>
 
-    <section class="hero">
+    <!-- <section class="hero">
 			<div class="waveBall">
 				<div class="loader-container">
 					<div class="rectangle-1"></div>
@@ -54,7 +71,7 @@
 					<div class="rectangle-1"></div>	
 				</div>
 			</div>
-		</section>
+		</section> -->
 
     <script id="user-profile-template" type="text/x-handlebars-template">
         <h1>Logged in as {{display_name}}</h1>
@@ -165,5 +182,7 @@
         }
       })();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+    <script src="dist/js/main.js"></script>
 </body>
 </html>
