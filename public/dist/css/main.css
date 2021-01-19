@@ -4,7 +4,7 @@
 /* important variables */
 
 .body {
-	background-color: #666;
+	background-color: #111;
 }
 
 
@@ -111,7 +111,12 @@ h1{
 }
 
 .container {
-	background-color: #666;
+	background-color: #111;
+}
+
+.waveHero{
+	width: 100%;
+	height: 20em;
 }
 
 .btn{
