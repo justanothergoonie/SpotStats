@@ -1,51 +1,5 @@
-/* spotStats main css file */
-
-/* important variables */
-
-body {
-	background-color: #111;
-	margin: 0px;
-}
-
-/* content */
-
-.headbar {
-	display: flex;
-	justify-content: space-between;
-	color: #fff;
-}
-
-.headbar a {
-	text-decoration: none;
-	text-transform: capitalize;
-	color: #fff;
-	font-size: 1.3em;
-}
-
-.headlogo {
-	display: flex;
-	width: 20em;
-}
-h1 {
-	margin-left: 5%;
-	color: white;
-}
-
-.container {
-	background-color: #111;
-}
-
-.waveHero {
-	width: fit-content;
-	height: 20em;
-	position: relative;
-}
-
-.btn {
-	background-color: green;
-	padding: 1em;
-	border: 0.13em rgb(1, 150, 1) solid;
-	border-radius: 10px;
-	color: #fff;
-	text-decoration: none;
-}
+/* Imports ================================= */
+@import 'reset';
+@import 'variables';
+@import 'base';
+@import 'home';

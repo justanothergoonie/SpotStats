@@ -53,14 +53,26 @@
       <div id="loggedin">
         <div id="user-profile">
         </div>
+        
+      </div> 
+      <div class="top-container"> 
         <div id="top-track">
-          <h1>Your top track is: <h1 id="top-track-name"></h1></h1>
+          <h2>Your top track is:</h2> <span id="top-track-name"></span>
         </div>
 
         <div id="recent-track">
-          
+          <h2>Your Most Recent Tracks</h2>
         </div>
-      </div>
+
+        <div id="top-artists"> 
+            <h2>Your Top Artists</h2>
+        </div>
+    </div>
+   
+
+     
+
+      
     </div>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
@@ -68,30 +80,19 @@
     </script>
     
     <script id="recent-track-template" type="text/x-handlebars-template">
-      <h2>Your Recent Track</h2>
       <dl class="dl-horizontal">
-        <dt>{{name}}</dt>
         <dt>{{artists.[0].name}}</dt>
+        <dt>{{name}}</dt>
       </dl>
     </script>
 
-    <script id="recent-tracks-template" type="text/x-handlebars-template">
-          <h2>Your Recently Played Tracks</h2>
-          <ul id="recent-tracks"> 
-            {{#each track}}
-              <li>{{inTrack}}</li> 
-            {{/each}}
-          </ul>
+
+    <script id="top-artists-template" type="text/x-handlebars-template">
+      <dl class="dl-horizontal">
+        <dt>{{name}}</dt>
+      </dl>
     </script>
-    
-    <!-- <script type="text/handlebar-template" id="recentTracks">
-      <span>Recent Tracks </span>
-      <ul id="track">
-        {{#each track}}
-          <option value="{{id}}">{{firstName}} {{lastName}}</option>
-        {{/each}}
-      </ul>
-    </script> -->
+  
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -124,6 +125,10 @@
         var recentTrackSource = document.getElementById('recent-track-template').innerHTML,
             recentTrackTemplate = Handlebars.compile(recentTrackSource),
             recentTrackPlaceholder = document.getElementById('recent-track');   
+        //Top Artists
+        var topArtistsSource = document.getElementById('top-artists-template').innerHTML,
+            topArtistsTemplate = Handlebars.compile(topArtistsSource),
+            topArtistsPlaceholder = document.getElementById('top-artists');  
 
         var params = getHashParams();
 
@@ -141,7 +146,7 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  console.log(response )
+               console.log(response)
                   userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
                   $('#login').hide();
@@ -173,9 +178,19 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  console.log("Top Artists: " + response.items)
-                  console.log("Top Artist: " + response.items[0].name)
-
+                  var topArtists = response.items
+                  var topArtist = response.items[0].name
+                  console.log(response)
+                  console.log("Top Artist: " + topArtist)
+                  for (let artist in topArtists){
+                    let artistHolder = document.createElement("div")
+                    artistHolder.innerHTML = topArtistsTemplate(topArtists[artist].name)
+                    topArtistsTemplate = Handlebars.compile(topArtistsSource)
+                    console.log(topArtistsSource)
+                    topArtistsPlaceholder.appendChild(artistHolder)
+                    console.log(artistHolder)
+                    console.log(topArtists[artist].name)
+                  }
                 }
             });            
             //Recent Played
@@ -185,22 +200,18 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                console.log("Recently Played: " )
-                console.log( response.items )
+                // console.log("Recently Played: " )
+                console.log( response )
    
                 var recTrack = response.items
-
                 for (let indTrack in recTrack){
-                     let trackHolder = document.createElement("li")
-                    // console.log(recentTrackSource)
-                     recentTrackPlaceholder.innerHTML = recentTrackTemplate(response.items[indTrack].track);
-                     console.log(recentTrackTemplate(response.items[indTrack].track))
-                     recentTrackTemplate = Handlebars.compile(recentTrackSource)
-                  //   trackHolder.innerHTML = recentTrackTemplate(indTrack)
-                     recentTrackPlaceholder.appendChild(trackHolder)
+                  let trackHolder = document.createElement("div")
+                  trackHolder.innerHTML = recentTrackTemplate(response.items[indTrack].track)
+                  recentTrackTemplate = Handlebars.compile(recentTrackSource)
+                  console.log(recentTrackSource)
+                  recentTrackPlaceholder.appendChild(trackHolder)
+                  console.log(trackHolder)
                   }
-
-
                 }
             });
 
