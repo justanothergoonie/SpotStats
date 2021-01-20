@@ -75,6 +75,7 @@
       </dl>
     </script>
 
+<<<<<<< HEAD
    <!--  <script id="recent-tracks-template" type="text/x-handlebars-template">
         <h2>Your Recently Played Tracks</h2>
           {{#each track}}
@@ -83,6 +84,25 @@
           </ul>
           {{/each}}
     </script>-->
+=======
+    <script id="recent-tracks-template" type="text/x-handlebars-template">
+          <h2>Your Recently Played Tracks</h2>
+          <ul id="recent-tracks"> 
+            {{#each track}}
+              <li>{{inTrack}}</li> 
+            {{/each}}
+          </ul>
+    </script>
+    
+    <!-- <script type="text/handlebar-template" id="recentTracks">
+      <span>Recent Tracks </span>
+      <ul id="track">
+        {{#each track}}
+          <option value="{{id}}">{{firstName}} {{lastName}}</option>
+        {{/each}}
+      </ul>
+    </script> -->
+>>>>>>> 80ce4bcac0bf66ca9a42ea71be56af7bff4a7163
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -200,6 +220,7 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
+<<<<<<< HEAD
                   console.log(reponse.items)
                   var recentTracks = response.items
                   // let recTracks = document.createElement('ul')
@@ -214,7 +235,17 @@
                     console.log(recentTrackTemplate({ trackName: recentTracks[indTrack].track.name}));
 
                   //  console.log(recentTracks[indTrack].track.name)
+=======
+                  var recentTracks = response.item
+                  var template = document.getElementById('recent-tracks-template').innerHTML;
+                  // var renderTrack = Handlebars.compile(template)
+                  for (let indTrack in recentTracks){
+                    var inTrack = recentTracks[indTrack].track.name
+                    // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
+                    console.log(inTrack)
+>>>>>>> 80ce4bcac0bf66ca9a42ea71be56af7bff4a7163
                   }
+
                 }
             });*/
           } else {
