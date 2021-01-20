@@ -179,17 +179,17 @@
                 },
                 success: function(response) {
                   var topArtists = response.items
-                  var topArtist = response.items[0].name
+                  // var topArtist = response.items[0].name
                   console.log(response)
-                  console.log("Top Artist: " + topArtist)
+                  // console.log("Top Artist: " + topArtist)
                   for (let artist in topArtists){
                     let artistHolder = document.createElement("div")
-                    artistHolder.innerHTML = topArtistsTemplate(topArtists[artist].name)
+                    artistHolder.innerHTML = topArtistsTemplate(topArtists[artist])
                     topArtistsTemplate = Handlebars.compile(topArtistsSource)
                     console.log(topArtistsSource)
                     topArtistsPlaceholder.appendChild(artistHolder)
                     console.log(artistHolder)
-                    console.log(topArtists[artist].name)
+                    console.log(topArtists[artist])
                   }
                 }
             });            
@@ -202,40 +202,19 @@
                 success: function(response) {
                 // console.log("Recently Played: " )
                 console.log( response )
-   
-                var recTrack = response.items
-                for (let indTrack in recTrack){
-                  let trackHolder = document.createElement("div")
-                  trackHolder.innerHTML = recentTrackTemplate(response.items[indTrack].track)
-                  recentTrackTemplate = Handlebars.compile(recentTrackSource)
-                  console.log(recentTrackSource)
-                  recentTrackPlaceholder.appendChild(trackHolder)
-                  console.log(trackHolder)
+                  var recTrack = response.items
+                  for (let indTrack in recTrack){
+                    let trackHolder = document.createElement("div")
+                    trackHolder.innerHTML = recentTrackTemplate(recTrack[indTrack].track)
+                    recentTrackTemplate = Handlebars.compile(recentTrackSource)
+                    // console.log(recentTrackSource)
+                    recentTrackPlaceholder.appendChild(trackHolder)
+                    console.log(trackHolder)
                   }
                 }
             });
 
-            /*
-            //Recently Played
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me/player/recently-played',
-                headers: {
-                  'Authorization': 'Bearer ' + access_token
-                },
-                success: function(response) {
-                  var recentTracks = response.items
-                  console.log(recentTracks)
-                  // var template = document.getElementById('recent-tracks-template').innerHTML;
-                  // var renderTrack = Handlebars.compile(template)
-                  for (let indTrack in recentTracks){
-                    let randomDiv = document.createElement('div')
-                    var track = recentTracks[indTrack].track.name
-                    // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
-                    console.log(track)
-                  }
 
-                }
-            });*/
           } else {
               // render initial screen
               $('#login').show();
