@@ -17,6 +17,10 @@
         white-space: nowrap;
         width: 500px;
       }
+
+      body {
+        color: white;
+      }
     </style>
   
   </head>
@@ -52,6 +56,10 @@
         <div id="top-track">
           <h1>Your top track is: <h1 id="top-track-name"></h1></h1>
         </div>
+
+        <div id="recent-track">
+          
+        </div>
       </div>
     </div>
 
@@ -77,22 +85,22 @@
         <h1>Logged in as {{display_name}}</h1>
     </script>
     
-    <script id="toptrack-template" type="text/x-handlebars-template">
-      <h2>Your top track</h2>
+    <script id="recent-track-template" type="text/x-handlebars-template">
+      <h2>Your Recent Track</h2>
       <dl class="dl-horizontal">
-        <dt>{{name}}</dt><dd class="text-overflow">{{access_token}}</dd>
-        <dt>{{artists}}</dt><dd class="text-overflow">{{refresh_token}}</dd>
+        <dt>{{name}}</dt>
+        <dt>{{artists.[0].name}}</dt>
       </dl>
     </script>
 
-        <script id="recent-tracks-template" type="text/x-handlebars-template">
-          <h2>Your Recently Played Tracks</h2>
+   <!--  <script id="recent-tracks-template" type="text/x-handlebars-template">
+        <h2>Your Recently Played Tracks</h2>
           {{#each track}}
           <ul class="recent-tracks">
             <li>{{ind_track}}</li>
           </ul>
           {{/each}}
-        </script>
+    </script>-->
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -114,9 +122,18 @@
             }
             return hashParams;
           }
-       var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+
+        //Handlebar Teplates
+
+        //User Profile
+        var userProfileSource = document.getElementById('user-profile-template').innerHTML,
             userProfileTemplate = Handlebars.compile(userProfileSource),
             userProfilePlaceholder = document.getElementById('user-profile');
+            
+        //Recent Track
+        var recentTrackSource = document.getElementById('recent-track-template').innerHTML,
+            recentTrackTemplate = Handlebars.compile(recentTrackSource),
+            recentTrackPlaceholder = document.getElementById('recent-track');   
 
         var params = getHashParams();
 
@@ -134,6 +151,7 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
+                  console.log(response )
                   userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
                   $('#login').hide();
@@ -148,31 +166,76 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  console.log(response.items[0].name)
+                  console.log("Top Tracks: " )
+                  console.log(response.items)
+                  console.log("Top Track: " + response.items[0].name)
+
                   document.getElementById('top-track-name').innerHTML = response.items[0].name
                   $('#login').hide();
                   $('#loggedin').show();
                 }
             });
+
+            //Render Top Artists
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/top/artists',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  console.log("Top Artists: " + response.items)
+                  console.log("Top Artist: " + response.items[0].name)
+
+                }
+            });            
+            //Recent Played
             $.ajax({
                 url: 'https://api.spotify.com/v1/me/player/recently-played',
                 headers: {
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
+                console.log("Recently Played: " )
+                console.log( response.items )
+                recentTrackPlaceholder.innerHTML = recentTrackTemplate(response.items[0].track);
+                var recTrack = response.items
+
+                for (let indTrack in recTrack){
+                     let trackHolder = document.createElement("li")
+                     console.log(recentTrackSource)
+                     trackHolder.innerHTML = recentTrackTemplate(indTrack)
+                     recentTrackPlaceholder.appendChild(trackHolder)
+                  }
+
+
+                }
+            });
+
+            /*
+            //Recently Played
+            $.ajax({
+                url: 'https://api.spotify.com/v1/me/player/recently-played',
+                headers: {
+                  'Authorization': 'Bearer ' + access_token
+                },
+                success: function(response) {
+                  console.log(reponse.items)
                   var recentTracks = response.items
                   // let recTracks = document.createElement('ul')
-                  var template = document.getElementById('recent-tracks-template').innerHTML;
-                  var renderTrack = Handlebars.compile(template)
+                  // var template = document.getElementById('recent-tracks-template').innerHTML;
+
+                 // var renderTrack = Handlebars.compile(template)
                   for (let indTrack in recentTracks){
                     // let indTrack = document.createElement('li')
                     // recTracks.appendChild(indTrack)
-                    indTrack.innerHTML = recentTracks[indTrack].track.name
+                   // indTrack.innerHTML = recentTracks[indTrack].track.name
                     // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
-                    console.log(recentTracks[indTrack].track.name)
+                    console.log(recentTrackTemplate({ trackName: recentTracks[indTrack].track.name}));
+
+                  //  console.log(recentTracks[indTrack].track.name)
                   }
                 }
-            });
+            });*/
           } else {
               // render initial screen
               $('#login').show();
