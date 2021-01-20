@@ -138,13 +138,15 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  var recentTracks = response.item
-                  var template = document.getElementById('recent-tracks-template').innerHTML;
+                  var recentTracks = response.items
+                  console.log(recentTracks)
+                  // var template = document.getElementById('recent-tracks-template').innerHTML;
                   // var renderTrack = Handlebars.compile(template)
                   for (let indTrack in recentTracks){
-                    var inTrack = recentTracks[indTrack].track.name
+                    let randomDiv = document.createElement('div')
+                    var track = recentTracks[indTrack].track.name
                     // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
-                    console.log(inTrack)
+                    console.log(track)
                   }
 
                 }
