@@ -1,3 +1,5 @@
+section {
+	background-color: blue;
 /* spotStats main css file */
 
 
@@ -127,6 +129,9 @@ h1{
 	border-radius: 10px;
 	color: #fff;
 	text-decoration: none;
+}
+
+/*# sourceMappingURL=main.css.map */
 }
 
 /*# sourceMappingURL=main.css.map */
