@@ -75,16 +75,6 @@
       </dl>
     </script>
 
-<<<<<<< HEAD
-   <!--  <script id="recent-tracks-template" type="text/x-handlebars-template">
-        <h2>Your Recently Played Tracks</h2>
-          {{#each track}}
-          <ul class="recent-tracks">
-            <li>{{ind_track}}</li>
-          </ul>
-          {{/each}}
-    </script>-->
-=======
     <script id="recent-tracks-template" type="text/x-handlebars-template">
           <h2>Your Recently Played Tracks</h2>
           <ul id="recent-tracks"> 
@@ -102,7 +92,6 @@
         {{/each}}
       </ul>
     </script> -->
->>>>>>> 80ce4bcac0bf66ca9a42ea71be56af7bff4a7163
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -198,13 +187,16 @@
                 success: function(response) {
                 console.log("Recently Played: " )
                 console.log( response.items )
-                recentTrackPlaceholder.innerHTML = recentTrackTemplate(response.items[0].track);
+   
                 var recTrack = response.items
 
                 for (let indTrack in recTrack){
                      let trackHolder = document.createElement("li")
-                     console.log(recentTrackSource)
-                     trackHolder.innerHTML = recentTrackTemplate(indTrack)
+                    // console.log(recentTrackSource)
+                     recentTrackPlaceholder.innerHTML = recentTrackTemplate(response.items[indTrack].track);
+                     console.log(recentTrackTemplate(response.items[indTrack].track))
+                     recentTrackTemplate = Handlebars.compile(recentTrackSource)
+                  //   trackHolder.innerHTML = recentTrackTemplate(indTrack)
                      recentTrackPlaceholder.appendChild(trackHolder)
                   }
 
@@ -220,22 +212,6 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-<<<<<<< HEAD
-                  console.log(reponse.items)
-                  var recentTracks = response.items
-                  // let recTracks = document.createElement('ul')
-                  // var template = document.getElementById('recent-tracks-template').innerHTML;
-
-                 // var renderTrack = Handlebars.compile(template)
-                  for (let indTrack in recentTracks){
-                    // let indTrack = document.createElement('li')
-                    // recTracks.appendChild(indTrack)
-                   // indTrack.innerHTML = recentTracks[indTrack].track.name
-                    // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
-                    console.log(recentTrackTemplate({ trackName: recentTracks[indTrack].track.name}));
-
-                  //  console.log(recentTracks[indTrack].track.name)
-=======
                   var recentTracks = response.item
                   var template = document.getElementById('recent-tracks-template').innerHTML;
                   // var renderTrack = Handlebars.compile(template)
@@ -243,7 +219,6 @@
                     var inTrack = recentTracks[indTrack].track.name
                     // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
                     console.log(inTrack)
->>>>>>> 80ce4bcac0bf66ca9a42ea71be56af7bff4a7163
                   }
 
                 }
