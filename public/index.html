@@ -5,19 +5,7 @@
     <!-- <base href="/"> -->
     <link rel="stylesheet" type="text/css" href="../dist/css/main.css" /> 
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
-    
-    
-    <style type="text/css">
-      #login, #loggedin {
-        display: none;
-      }
-      .text-overflow {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 500px;
-      }
-    </style>
+
   
   </head>
 
@@ -55,24 +43,6 @@
       </div>
     </div>
 
-    <!-- <section class="hero">
-			<div class="waveBall">
-				<div class="loader-container">
-					<div class="rectangle-1"></div>
-					<div class="rectangle-2"></div>
-					<div class="rectangle-3"></div>
-					<div class="rectangle-4"></div>
-					<div class="rectangle-5"></div>
-					<div class="rectangle-6"></div>
-					<div class="rectangle-5"></div>
-					<div class="rectangle-4"></div>
-					<div class="rectangle-3"></div>
-					<div class="rectangle-2"></div>
-					<div class="rectangle-1"></div>	
-				</div>
-			</div>
-		</section> -->
-
     <script id="user-profile-template" type="text/x-handlebars-template">
         <h1>Logged in as {{display_name}}</h1>
     </script>
@@ -85,23 +55,21 @@
       </dl>
     </script>
 
-        <script id="recent-tracks-template" type="text/x-handlebars-template">
+    <script id="recent-tracks-template" type="text/x-handlebars-template">
           <h2>Your Recently Played Tracks</h2>
           {{#each track}}
           <ul class="recent-tracks">
             <li>{{ind_track}}</li>
           </ul>
           {{/each}}
-        </script>
+    </script>
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <script src="../app.js"></script>
-    <script>console.log('hello world')</script>
+    <!-- <script src="../app.js"></script> -->
 
     <script>
         (function() {
-  
           /**
            * Obtains parameters from the hash of the URL
            * @return Object
@@ -164,11 +132,11 @@
                   var recentTracks = response.items
                   // let recTracks = document.createElement('ul')
                   var template = document.getElementById('recent-tracks-template').innerHTML;
-                  var renderTrack = Handlebars.compile(template)
+                  // var renderTrack = Handlebars.compile(template)
                   for (let indTrack in recentTracks){
                     // let indTrack = document.createElement('li')
                     // recTracks.appendChild(indTrack)
-                    indTrack.innerHTML = recentTracks[indTrack].track.name
+                    // indTrack.innerHTML = recentTracks[indTrack].track.name
                     // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
                     console.log(recentTracks[indTrack].track.name)
                   }
@@ -182,7 +150,6 @@
         }
       })();
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
     <script src="dist/js/main.js"></script>
 </body>
 </html>
