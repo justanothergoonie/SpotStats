@@ -56,8 +56,8 @@
         
       </div> 
       <div class="top-container"> 
-        <div id="top-track">
-          <h2>Your top track is:</h2> <span id="top-track-name"></span>
+        <div id="top-tracks">
+          <h2>Your Top Tracks of All Time</h2> 
         </div>
 
         <div id="recent-track">
@@ -66,6 +66,7 @@
 
         <div id="top-artists"> 
             <h2>Your Top Artists</h2>
+            <img class="artist-img" src="" alt="">
         </div>
     </div>
    
@@ -79,6 +80,12 @@
         <h1>Logged in as {{display_name}}</h1>
     </script>
     
+    <script id="top-tracks-template" type="text/x-handlebars-template">
+      <dl class="dl-horizontal">
+        <dt>{{name}}</dt>
+      </dl>
+    </script>
+
     <script id="recent-track-template" type="text/x-handlebars-template">
       <dl class="dl-horizontal">
         <dt>{{artists.[0].name}}</dt>
@@ -124,7 +131,12 @@
         //Recent Track
         var recentTrackSource = document.getElementById('recent-track-template').innerHTML,
             recentTrackTemplate = Handlebars.compile(recentTrackSource),
-            recentTrackPlaceholder = document.getElementById('recent-track');   
+            recentTrackPlaceholder = document.getElementById('recent-track'); 
+        //Top Track
+        var topTracksSource = document.getElementById('top-tracks-template').innerHTML,
+            topTracksTemplate = Handlebars.compile(topTracksSource),
+            topTracksPlaceholder = document.getElementById('top-tracks'); 
+
         //Top Artists
         var topArtistsSource = document.getElementById('top-artists-template').innerHTML,
             topArtistsTemplate = Handlebars.compile(topArtistsSource),
@@ -161,11 +173,18 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  console.log("Top Tracks: " )
-                  console.log(response.items)
+                  var topTracks = response.items
+                  console.log(topTracks)
+             
                   console.log("Top Track: " + response.items[0].name)
 
-                  document.getElementById('top-track-name').innerHTML = response.items[0].name
+                  // document.getElementById('top-track-name').innerHTML = response.items[0].name
+                  for (let song in topTracks){
+                    let topTracksHolder = document.createElement("div")
+                    topTracksHolder.innerHTML = topTracksTemplate(topTracks[song])
+                    topTrackTemplate = Handlebars.compile(topTracksSource)
+                    topTracksPlaceholder.appendChild(topTracksHolder)
+                  }
                   $('#login').hide();
                   $('#loggedin').show();
                 }
@@ -180,16 +199,17 @@
                 success: function(response) {
                   var topArtists = response.items
                   // var topArtist = response.items[0].name
-                  console.log(response)
+                  console.log(response.items)
                   // console.log("Top Artist: " + topArtist)
                   for (let artist in topArtists){
                     let artistHolder = document.createElement("div")
                     artistHolder.innerHTML = topArtistsTemplate(topArtists[artist])
                     topArtistsTemplate = Handlebars.compile(topArtistsSource)
-                    console.log(topArtistsSource)
                     topArtistsPlaceholder.appendChild(artistHolder)
-                    console.log(artistHolder)
-                    console.log(topArtists[artist])
+                    // document.querySelector('.artist-img').setAttribute('src', topArtists[artist].images[0].url)
+                    // console.log(topArtistsSource)
+                    // console.log(artistHolder)
+                    // console.log(topArtists[artist].images[0].url)
                   }
                 }
             });            
@@ -201,7 +221,7 @@
                 },
                 success: function(response) {
                 // console.log("Recently Played: " )
-                console.log( response )
+                // console.log( response )
                   var recTrack = response.items
                   for (let indTrack in recTrack){
                     let trackHolder = document.createElement("div")
@@ -209,7 +229,7 @@
                     recentTrackTemplate = Handlebars.compile(recentTrackSource)
                     // console.log(recentTrackSource)
                     recentTrackPlaceholder.appendChild(trackHolder)
-                    console.log(trackHolder)
+                    // console.log(trackHolder)
                   }
                 }
             });
