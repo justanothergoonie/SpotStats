@@ -1,114 +1,30 @@
-section {
-	background-color: blue;
 /* spotStats main css file */
-
-
 /* important variables */
-
-.body {
+body {
 	background-color: #111;
+	margin: 0px;
 }
-
-
-/* loading Sound wave */
-@keyframes quiet {
-	25%{
-		transform: scaleY(.6);
-	}
-	50%{
-		transform: scaleY(.4);
-	}
-	75%{
-		transform: scaleY(.8);
-	}
-}
-
-@keyframes normal {
-	25%{
-		transform: scaleY(1);
-	}
-	50%{
-		transform: scaleY(.4);
-	}
-	75%{
-		transform: scaleY(.6);
-	}
-}	
-@keyframes loud {
-	25%{
-		transform: scaleY(1);
-	}
-	50%{
-		transform: scaleY(.4);
-	}
-	75%{
-		transform: scaleY(1.2);
-	}
-}
-
-.boxContainer{
-	display: flex;
-	justify-content: space-between;
-	height: 64px;
-	--boxSize: 8px;
-	--gutter: 4px;
-	width: calc((var(--boxSize) + var(--gutter)) * 5);
-}
-
-.box{
-	transform: scaleY(.4);
-	height: 100%;
-	width: var(--boxSize);
-	background: #fff;
-	animation-duration: 1.2s;
-	animation-timing-function: ease-in-out;
-	animation-iteration-count: infinite;
-	border-radius: 8px;
-}
-
-.box1{
-	animation-name: quiet;	
-}
-
-.box2{
-	animation-name: normal;
-}
-
-.box3{
-	animation-name: quiet;
-}
-
-.box4{
-	animation-name: loud;
-}
-
-.box5{
-	animation-name: quiet;
-}
-
-
-
 
 /* content */
-
-.headbar{
+.headbar {
 	display: flex;
 	justify-content: space-between;
 	color: #fff;
 }
 
-.headbar a{
+.headbar a {
 	text-decoration: none;
 	text-transform: capitalize;
 	color: #fff;
 	font-size: 1.3em;
 }
 
-.headlogo{
+.headlogo {
 	display: flex;
 	width: 20em;
 }
-h1{
+
+h1 {
 	margin-left: 5%;
 }
 
@@ -116,22 +32,21 @@ h1{
 	background-color: #111;
 }
 
-.waveHero{
+.waveHero {
+	width: -webkit-fit-content;
+	width: -moz-fit-content;
 	width: fit-content;
 	height: 20em;
 	position: relative;
 }
 
-.btn{
+.btn {
 	background-color: green;
 	padding: 1em;
-	border: .13em rgb(1, 150, 1) solid;
+	border: 0.13em #019601 solid;
 	border-radius: 10px;
 	color: #fff;
 	text-decoration: none;
-}
-
-/*# sourceMappingURL=main.css.map */
 }
 
 /*# sourceMappingURL=main.css.map */
