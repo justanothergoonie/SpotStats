@@ -57,12 +57,21 @@
 
     <script id="recent-tracks-template" type="text/x-handlebars-template">
           <h2>Your Recently Played Tracks</h2>
-          {{#each track}}
-          <ul class="recent-tracks">
-            <li>{{ind_track}}</li>
+          <ul id="recent-tracks"> 
+            {{#each track}}
+              <li>{{inTrack}}</li> 
+            {{/each}}
           </ul>
-          {{/each}}
     </script>
+    
+    <!-- <script type="text/handlebar-template" id="recentTracks">
+      <span>Recent Tracks </span>
+      <ul id="track">
+        {{#each track}}
+          <option value="{{id}}">{{firstName}} {{lastName}}</option>
+        {{/each}}
+      </ul>
+    </script> -->
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -129,17 +138,15 @@
                   'Authorization': 'Bearer ' + access_token
                 },
                 success: function(response) {
-                  var recentTracks = response.items
-                  // let recTracks = document.createElement('ul')
+                  var recentTracks = response.item
                   var template = document.getElementById('recent-tracks-template').innerHTML;
                   // var renderTrack = Handlebars.compile(template)
                   for (let indTrack in recentTracks){
-                    // let indTrack = document.createElement('li')
-                    // recTracks.appendChild(indTrack)
-                    // indTrack.innerHTML = recentTracks[indTrack].track.name
+                    var inTrack = recentTracks[indTrack].track.name
                     // document.getElementById('recent-track').innerHTML = renderTrack({track: recentTracks[indTrack].track.name});
-                    console.log(recentTracks[indTrack].track.name)
+                    console.log(inTrack)
                   }
+
                 }
             });
           } else {
