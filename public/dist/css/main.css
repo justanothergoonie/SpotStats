@@ -268,10 +268,14 @@ h1 {
 	margin: 0 auto;
 }
 
-.container .top-container #top-track {
+.container .top-container #top-tracks {
 	display: flex;
 	flex-direction: column;
 	width: 33.33%;
+}
+
+.container .top-container #top-tracks .topArtistContainer .topTracksArt {
+	width: 50%;
 }
 
 .container .top-container #recent-track {
@@ -280,10 +284,18 @@ h1 {
 	width: 33.33%;
 }
 
+.container .top-container #recent-track .recTrackContainer .recTrackArt {
+	width: 50%;
+}
+
 .container .top-container #top-artists {
 	display: flex;
 	flex-direction: column;
 	width: 33.33%;
+}
+
+.container .top-container #top-artists .topArtistContainer .artistArt {
+	width: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */
