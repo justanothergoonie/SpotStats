@@ -3,6 +3,7 @@
   <head>
     <title>Simple Spotify Stat Page</title>
     <!-- <base href="/"> -->
+    <link rel="stylesheet" type="text/css" href="dist/css/heroWave.css" />
     <link rel="stylesheet" type="text/css" href="../dist/css/main.css" /> 
     <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
     
@@ -43,8 +44,29 @@
           <a href="/login">login</a>
         </div>
 
-        <div class="waveHero">
-          <canvas id="canvas"></canvas>
+        <div class="heroBody">
+          <div class="hero">
+            <div class="waveContainer">
+              <svg class="svg1">  
+                  <g>    
+                    <line id="line" x1="0" x2="100%"/>
+                    <polyline id="wave"/>
+                  </g>  
+              </svg>
+              <svg class="svg2">  
+                  <g>    
+                    <line id="line" x1="0" x2="100%" />
+                    <polyline id="wave" />
+                  </g>  
+              </svg>
+              <svg class="svg3">  
+                  <g>    
+                    <line id="line" x1="0" x2="100%" />
+                    <polyline id="wave" />
+                  </g>  
+              </svg>
+            </div>
+          </div>
         </div>
 
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
@@ -275,6 +297,9 @@
         }
       })();
     </script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="dist/js/CustomEase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
     <script src="dist/js/main.js"></script>
 </body>
 </html>
