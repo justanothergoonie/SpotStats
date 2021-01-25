@@ -56,35 +56,89 @@ h1 {
 	flex-direction: column;
 	.top-container {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		margin: 0 auto;
 		#top-tracks {
 			display: flex;
-			flex-direction: column;
-			width: 33.33%;
+			flex-direction: row;
+			width: 100%;
+			flex-wrap: wrap;
+			.topTracksHeader {
+				width: 100%;
+				font-size: 1.5rem;
+			}
 			.topArtistContainer {
+				display: flex;
+				width: 50%;
+				margin-top: 10%;
+				.topTracksHolder {
+					display: flex;
+					align-items: center;
+					width: 43%;
+					margin: 20px;
+					.dl-horizontal {
+						font-size: 1.2rem;
+					}
+				}
 				.topTracksArt {
-					width: 50%;
+					width: 45%;
+					border-radius: 70%;
 				}
 			}
 		}
 		#recent-track {
 			display: flex;
-			flex-direction: column;
-			width: 33.33%;
+			flex-direction: row;
+			width: 100%;
+			flex-wrap: wrap;
+			.recentTracksHeader {
+				width: 100%;
+				font-size: 1.5rem;
+			}
 			.recTrackContainer {
+				display: flex;
+				width: 50%;
+				margin-top: 10%;
+				.trackHolder {
+					display: flex;
+					align-items: center;
+					width: 43%;
+					margin: 20px;
+					.dl-horizontal {
+						font-size: 1.2rem;
+					}
+				}
 				.recTrackArt {
-					width: 50%;
+					width: 45%;
+					border-radius: 70%;
 				}
 			}
 		}
 		#top-artists {
 			display: flex;
-			flex-direction: column;
-			width: 33.33%;
+			flex-direction: row;
+			width: 100%;
+			flex-wrap: wrap;
+			.artistHeader {
+				width: 100%;
+				font-size: 1.5rem;
+			}
 			.topArtistContainer {
+				display: flex;
+				width: 50%;
+				margin-top: 10%;
+				.artistHolder {
+					display: flex;
+					align-items: center;
+					width: 43%;
+					margin: 20px;
+					.dl-horizontal {
+						font-size: 1.2rem;
+					}
+				}
 				.artistArt {
-					width: 50%;
+					width: 45%;
+					border-radius: 70%;
 				}
 			}
 		}

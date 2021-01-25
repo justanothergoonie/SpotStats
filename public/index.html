@@ -79,15 +79,15 @@
       </div> 
       <div class="top-container"> 
         <div id="top-tracks">
-          <h2>Your Top Tracks of All Time</h2> 
+          <h2 class="topTracksHeader">Your Top Tracks of All Time</h2> 
         </div>
 
         <div id="recent-track">
-          <h2>Your Most Recent Tracks</h2>
+          <h2 class="recentTracksHeader">Your Most Recent Tracks</h2>
         </div>
 
         <div id="top-artists"> 
-            <h2>Your Top Artists</h2>
+            <h2 class="artistHeader">Your Top Artists</h2>
         </div>
     </div>
    
@@ -272,6 +272,7 @@
                     let trackPicHolder = document.createElement("img")
 
                     container.setAttribute('class', 'recTrackContainer')
+                    trackHolder.setAttribute('class','trackHolder')
                     trackPicHolder.setAttribute('class', 'recTrackArt')
                     trackPicHolder.setAttribute('src', albumArt)
 
