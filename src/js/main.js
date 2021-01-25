@@ -1,34 +1,3 @@
-
-// wave.js
-
-TweenLite.defaultEase = Sine.easeInOut;
-TweenLite.set("g", { y: window.innerHeight / 2 });
-
-var svg  = document.querySelectorAll("svg");
-var wave = document.querySelectorAll("#wave");
-
-for (let z = 0; z < svg.length; z ++){
-  var width = 1000;
-  var sinus = CustomEase.create("sinus", "M0,0 C0.4,0 0.3,1 0.5,1 0.7,1 0.6,0 1,0");
-  
-  var amplitude = 200;
-  var frequency = 20;
-  var segments  = 1300;
-  var interval  = width / segments;
-  
-  for (var i = 0; i <= segments; i++) {
-    
-    var norm = .8 - i / segments;
-    var point = wave[z].points.appendItem(svg[z].createSVGPoint());
-    
-    point.x = i * interval;
-    point.y = (amplitude / 1) * sinus(norm);
-      
-    TweenMax.to(point, 0.6, { y: -point.y, repeat: -1, yoyo: true }).progress(norm * frequency);  
-  }
-
-}
-
 =======
 /**
  * This is an example of a basic node.js script that performs
