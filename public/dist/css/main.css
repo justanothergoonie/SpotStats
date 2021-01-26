@@ -202,6 +202,74 @@ a {
 	text-decoration: none;
 }
 
+/* wave stuff */
+.hero {
+	display: flex;
+	overflow: visible;
+	align-items: center;
+	justify-content: center;
+}
+
+svg {
+	position: relative;
+	top: -6%;
+	width: 100%;
+	overflow: visible;
+	height: 100%;
+}
+
+.svg1 {
+	padding: 50px;
+	left: -100%;
+}
+
+.svg2 {
+	padding: 50px;
+	left: -100%;
+}
+
+.svg3 {
+	padding: 50px;
+	left: -100%;
+}
+
+line {
+	stroke-width: 0;
+	stroke: #3c3c3c;
+}
+
+.wave {
+	stroke-opacity: 75%;
+	height: 5px;
+	width: 5px;
+	position: absolute;
+	width: 100%;
+}
+
+.svg1 .wave {
+	fill: none;
+	stroke-width: 13;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #09f409;
+}
+
+.svg2 .wave {
+	fill: none;
+	stroke-width: 13;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #56acf4;
+}
+
+.svg3 .wave {
+	fill: none;
+	stroke-width: 13;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #067ac9;
+}
+
 /* spotStats main css file */
 /* important variables */
 body {
@@ -368,85 +436,6 @@ h1 {
 .container .top-container #top-artists .topArtistContainer .artistArt {
 	width: 45%;
 	border-radius: 70%;
-}
-
-/* wave stuff */
-
-/* .hero{
-    height: 50%;
-	background: #111;
-	width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-} */
-
-.hero {
-	display: flex;
-	overflow: visible;
-	align-items: center;
-	justify-content: center;
-}
-
-svg{
-    position: relative;
-	top: -6%;
-	width: 100%;
-	overflow: visible;
-    height: 100%;
-}
-
-.svg1 {
-    padding: 50px;
-    left: -100%;
-}
-
-.svg2 {
-    padding: 50px;
-    left: -100%;
-}
-
-.svg3 {
-    padding: 50px;
-    left: -100%;
-}
-
-line {
-    stroke-width: 0;
-    stroke: #3c3c3c;
-}
-
-.wave {
-	stroke-opacity: 75%;
-	height: 5px;
-	width: 5px;
-	position: absolute;
-	width: 100%;
-}
-
-.svg1 .wave {
-    fill: none;
-    stroke-width: 13;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #09f409;
-}
-  
-.svg2 .wave {
-    fill: none;
-    stroke-width: 13;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #56acf4;
-}
-
-.svg3 .wave {
-    fill: none;
-    stroke-width: 13;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #067ac9;
 }
 
 /*# sourceMappingURL=main.css.map */
