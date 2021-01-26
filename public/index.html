@@ -9,9 +9,9 @@
     
     
     <style type="text/css">
-      #login, #loggedin {
+      /* #login, #loggedin {
         display: none;
-      }
+      } */
       .text-overflow {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -29,7 +29,7 @@
   <body>
     
     <div class="container">
-      <div id="login">
+        <div id="login">
         <div class="headbar">
           <div class="headlogo">  
             <h1>Stats for Spotify</h1>
@@ -61,7 +61,7 @@
         </div>
 
         <a href="/login" class="btn btn-primary">Log in with Spotify</a>
-      </div>
+    </div>
 
       <div id="loggedin">
         <div id="user-profile">
@@ -80,18 +80,14 @@
         <div id="top-artists"> 
             <h2 class="artistHeader">Your Top Artists</h2>
         </div>
+      </div>
+
     </div>
 
     <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
     <script src="dist/js/CustomEase.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-    <script src="dist/js/waveHero.js"></script>   
-   
-
-     
-
-      
-    </div>
+    <script src="dist/js/waveHero.js"></script>
 
     <script id="user-profile-template" type="text/x-handlebars-template">
         <h1>Logged in as {{display_name}}</h1>
@@ -120,7 +116,6 @@
   
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-    <!-- <script src="../app.js"></script> -->
 
     <script>
         (function() {
@@ -294,5 +289,9 @@
         }
       })();
     </script>
+<<<<<<< HEAD
+=======
+    <!-- <script src="dist/js/main.js"></script> -->
+>>>>>>> 29b639dfea133477399daa83fc94f251e6e9ae9a
 </body>
 </html>
