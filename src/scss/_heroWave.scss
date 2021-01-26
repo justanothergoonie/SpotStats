@@ -1,86 +1,67 @@
-.heroBody {
-    height: 100vh;
-    background: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.hero{
+/* wave stuff */
+/* .hero{
     height: 50%;
-    background: #111;
-    border: .42em #fff solid;
-    width: 50%;
+	background: #111;
+	width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+} */
+.hero {
+	display: flex;
+	overflow: visible;
+	align-items: center;
+	justify-content: center;
 }
-
-.waveContainer{
-    height: 100%;
-    width: 50%;
-    display: flex;
-    overflow: hidden;
-    position: absolute;
+svg {
+	position: relative;
+	top: -6%;
+	width: 100%;
+	overflow: visible;
+	height: 100%;
 }
-
-svg{
-    position: absolute;
-    top: -6%;
-    overflow: hidden;
-}
-
 .svg1 {
-    width: 600px;
-    width: 700px;
-    height: 100%;
-    padding: 50px;
-    left: -20%;
+	padding: 50px;
+	left: -100%;
 }
-
 .svg2 {
-    width: 600px;
-    width: 600px;
-    height: 100%;
-    padding: 50px;
-    left: -15%;
+	padding: 50px;
+	left: -100%;
 }
-
 .svg3 {
-    width: 500px;
-    width: 600px;
-    height: 100%;
-    padding: 50px;
-    left: -10%;
+	padding: 50px;
+	left: -100%;
 }
-
 line {
-    stroke-width: 0;
-    stroke: #3c3c3c;
+	stroke-width: 0;
+	stroke: #3c3c3c;
 }
-
-.svg1 #wave {
-    fill: none;
-    stroke-width: 7;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #990066;
+.wave {
+	stroke-opacity: 75%;
+	height: 5px;
+	width: 5px;
+	position: absolute;
+	width: 100%;
 }
-  
-.svg2 #wave {
-    fill: none;
-    stroke-width: 7;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #56acf4;
+.svg1 .wave {
+	fill: none;
+	stroke-width: 13;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #09f409;
 }
-
-.svg3 #wave {
-    fill: none;
-    stroke-width: 7;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke: #660099;
+.svg2 .wave {
+	fill: none;
+	stroke-width: 13;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #56acf4;
+}
+.svg3 .wave {
+	fill: none;
+	stroke-width: 13;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke: #067ac9;
 }
