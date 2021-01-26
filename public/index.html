@@ -1,299 +1,279 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Simple Spotify Stat Page</title>
-    <!-- <base href="/"> -->
 
-    <link rel="stylesheet" type="text/css" href="../dist/css/main.css" /> 
-    <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
-    
-    
-    <style type="text/css">
-      /* #login, #loggedin {
-        display: none;
-      } */
-      .text-overflow {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 500px;
-      }
+<head>
+  <title>Simple Spotify Stat Page</title>
+  <!-- <base href="/"> -->
+  <link rel="stylesheet" type="text/css" href="../dist/css/main.css" />
+  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"> -->
+  <style type="text/css">
 
-      body {
-        color: white;
-      }
-    </style>
-  
-  </head>
+    .text-overflow {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 500px;
+    }
 
-  <body>
-    
-    <div class="container">
-        <div id="login">
-        <div class="headbar">
-          <div class="headlogo">
-            <div class="boxContainer">
-              <div class="box box1"></div>
-              <div class="box box2"></div>
-              <div class="box box3"></div>
-              <div class="box box4"></div>
-              <div class="box box5"></div>
-            </div>
-            <h1>Stats for Spotify</h1>
+    body {
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div id="login">
+      <div class="headbar">
+        <div class="headlogo">
+          <div class="boxContainer">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+            <div class="box box4"></div>
+            <div class="box box5"></div>
           </div>
-          <a href="/login">login</a>
+          <h1>Stats for Spotify</h1>
         </div>
-
-        <div class="heroBody">
-          <div class="hero">
-            <div class="waveContainer">
-              <svg class="svg1">  
-                  <g>    
-                    <line id="line" x1="0" x2="100%"/>
-                    <polyline id="wave"/>
-                  </g>  
-              </svg>
-              <svg class="svg2">  
-                  <g>    
-                    <line id="line" x1="0" x2="100%" />
-                    <polyline id="wave" />
-                  </g>  
-              </svg>
-              <svg class="svg3">  
-                  <g>    
-                    <line id="line" x1="0" x2="100%" />
-                    <polyline id="wave" />
-                  </g>  
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <a href="/login" class="btn btn-primary">Log in with Spotify</a>
-    </div>
-
-      <div id="loggedin">
-        <div id="user-profile">
-        </div>
-        
-      </div> 
-      <div class="top-container"> 
-        <div id="top-tracks">
-          <h2 class="topTracksHeader">Your Top Tracks of All Time</h2> 
-        </div>
-
-        <div id="recent-track">
-          <h2 class="recentTracksHeader">Your Most Recent Tracks</h2>
-        </div>
-
-        <div id="top-artists"> 
-            <h2 class="artistHeader">Your Top Artists</h2>
+        <a href="/login">login</a>
+      </div>
+      <div class="heroBody">
+        <div class="hero">
+          <svg class="svg1">
+            <g>
+              <line id="line" x1="0" x2="100%" />
+              <polyline class="wave" />
+            </g>
+          </svg>
+          <svg class="svg2">
+            <g>
+              <line id="line" x1="0" x2="100%" />
+              <polyline class="wave" />
+            </g>
+          </svg>
+          <svg class="svg3">
+            <g>
+              <line id="line" x1="0" x2="100%" />
+              <polyline class="wave" />
+            </g>
+          </svg>
         </div>
       </div>
-
+  
     </div>
-
-
-    <script id="user-profile-template" type="text/x-handlebars-template">
-        <h1>Logged in as {{display_name}}</h1>
-    </script>
-    
-    <script id="top-tracks-template" type="text/x-handlebars-template">
-      <dl class="dl-horizontal">
-        <dt>{{name}}</dt>
-      </dl>
-    </script>
-
-    <script id="recent-track-template" type="text/x-handlebars-template">
-      <dl class="dl-horizontal">
-        <dt>{{artists.[0].name}}</dt>
-        <dt>{{name}}</dt>
-      </dl>
-    </script>
-
-
-    <script id="top-artists-template" type="text/x-handlebars-template">
-      <dl class="dl-horizontal">
-        <dt>{{name}}</dt>
-      </dl>
-    </script>
-  
-  
-    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-
-    <script>
-        (function() {
-          /**
-           * Obtains parameters from the hash of the URL
-           * @return Object
-           */
-          function getHashParams() {
-            var hashParams = {};
-            var e, r = /([^&;=]+)=?([^&;]*)/g,
-                q = window.location.hash.substring(1);
-            while ( e = r.exec(q)) {
-               hashParams[e[1]] = decodeURIComponent(e[2]);
-            }
-            return hashParams;
-          }
-
-        //Handlebar Teplates
-
-        //User Profile
-        var userProfileSource = document.getElementById('user-profile-template').innerHTML,
-            userProfileTemplate = Handlebars.compile(userProfileSource),
-            userProfilePlaceholder = document.getElementById('user-profile');
-            
-        //Recent Track
-        var recentTrackSource = document.getElementById('recent-track-template').innerHTML,
-            recentTrackTemplate = Handlebars.compile(recentTrackSource),
-            recentTrackPlaceholder = document.getElementById('recent-track'); 
-        //Top Track
-        var topTracksSource = document.getElementById('top-tracks-template').innerHTML,
-            topTracksTemplate = Handlebars.compile(topTracksSource),
-            topTracksPlaceholder = document.getElementById('top-tracks'); 
-
-        //Top Artists
-        var topArtistsSource = document.getElementById('top-artists-template').innerHTML,
-            topArtistsTemplate = Handlebars.compile(topArtistsSource),
-            topArtistsPlaceholder = document.getElementById('top-artists');  
-
-        var params = getHashParams();
-
-        var access_token = params.access_token,
-            refresh_token = params.refresh_token,
-            error = params.error;
-
-        if (error) {
-          alert('There was an error during the authentication');
-        } else {
-          if (access_token) {
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me',
-                headers: {
-                  'Authorization': 'Bearer ' + access_token
-                },
-                success: function(response) {
-               console.log(response)
-                  userProfilePlaceholder.innerHTML = userProfileTemplate(response);
-
-                  $('#login').hide();
-                  $('#loggedin').show();
-                }
-            });
-
-            //Render Top Tracks
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me/top/tracks',
-                headers: {
-                  'Authorization': 'Bearer ' + access_token
-                },
-                success: function(response) {
-                  var topTracks = response.items
-                 
-                  for (let song in topTracks){
-                    var topTracksArt = topTracks[song].album.images[0].url
-
-                    let container = document.createElement("div")
-                    let topTracksHolder = document.createElement("div")
-                    let topTracksImgHolder = document.createElement("img")
-
-                    container.setAttribute('class', 'topArtistContainer')
-                    topTracksHolder.setAttribute('class', 'topTracksHolder')
-                    topTracksImgHolder.setAttribute('src', topTracksArt)
-                    topTracksImgHolder.setAttribute('class', 'topTracksArt')
-                    
-                    topTracksHolder.innerHTML = topTracksTemplate(topTracks[song])
-
-                    topTrackTemplate = Handlebars.compile(topTracksSource)
-
-                    topTracksPlaceholder.appendChild(container)
-                    container.appendChild(topTracksHolder)
-                    container.appendChild(topTracksImgHolder)
-                  }
-                  $('#login').hide();
-                  $('#loggedin').show();
-                }
-            });
-
-            //Render Top Artists
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me/top/artists',
-                headers: {
-                  'Authorization': 'Bearer ' + access_token
-                },
-                success: function(response) {
-                  var topArtists = response.items
-                  for (let artist in topArtists){
-                    var artistArt = topArtists[artist].images[0].url
-
-                    let container = document.createElement("div")
-                    let artistHolder = document.createElement("div")
-                    let artistImgHolder = document.createElement("img")
-
-                    container.setAttribute('class', 'topArtistContainer')
-                    artistHolder.setAttribute('class', 'artistHolder')
-                    artistImgHolder.setAttribute('src', artistArt)
-                    artistImgHolder.setAttribute('class', 'artistArt')
-
-                    artistHolder.innerHTML = topArtistsTemplate(topArtists[artist])
-                    // console.log(topArtists[artist].images[0].url)
-
-                    topArtistsTemplate = Handlebars.compile(topArtistsSource)
-
-                    topArtistsPlaceholder.appendChild(container)
-                    container.appendChild(artistHolder)
-                    container.appendChild(artistImgHolder)
-                 
-                  }
-                }
-            });            
-            //Recent Played
-            $.ajax({
-                url: 'https://api.spotify.com/v1/me/player/recently-played',
-                headers: {
-                  'Authorization': 'Bearer ' + access_token
-                },
-                success: function(response) {
-                // console.log("Recently Played: " )
-                // console.log( response )
-                  var recTrack = response.items
-                  
-                  for (let indTrack in recTrack){
-                    var albumArt = recTrack[indTrack].track.album.images[0].url
-
-                    let container = document.createElement("div")
-                    let trackHolder = document.createElement("div")
-                    let trackPicHolder = document.createElement("img")
-
-                    container.setAttribute('class', 'recTrackContainer')
-                    trackHolder.setAttribute('class','trackHolder')
-                    trackPicHolder.setAttribute('class', 'recTrackArt')
-                    trackPicHolder.setAttribute('src', albumArt)
-
-                    trackHolder.innerHTML = recentTrackTemplate(recTrack[indTrack].track)
-                    
-                    recentTrackTemplate = Handlebars.compile(recentTrackSource)
-                    
-                    recentTrackPlaceholder.appendChild(container)
-                    container.appendChild(trackHolder)
-                    container.appendChild(trackPicHolder)
-                    
-                 
-                  }
-                }
-            });
-
-
-          } else {
-              // render initial screen
-              $('#login').show();
-              $('#loggedin').hide();
-          }
+    <div id="loggedin">
+      <div id="user-profile">
+      </div>
+    </div>
+    <div class="top-container">
+      <div id="top-tracks">
+        <h2 class="topTracksHeader">Your Top Tracks of All Time</h2>
+      </div>
+      <div id="recent-track">
+        <h2 class="recentTracksHeader">Your Most Recent Tracks</h2>
+      </div>
+      <div id="top-artists">
+        <h2 class="artistHeader">Your Top Artists</h2>
+      </div>
+    </div>
+  </div>
+  <script id="user-profile-template" type="text/x-handlebars-template">
+         <h1>Logged in as {{display_name}}</h1>
+      </script>
+  <script id="top-tracks-template" type="text/x-handlebars-template">
+         <dl class="dl-horizontal">
+           <dt>{{name}}</dt>
+         </dl>
+      </script>
+  <script id="recent-track-template" type="text/x-handlebars-template">
+         <dl class="dl-horizontal">
+           <dt>{{artists.[0].name}}</dt>
+           <dt>{{name}}</dt>
+         </dl>
+      </script>
+  <script id="top-artists-template" type="text/x-handlebars-template">
+         <dl class="dl-horizontal">
+           <dt>{{name}}</dt>
+         </dl>
+      </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+  <script src="dist/js/CustomEase.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+  <script src="dist/js/waveHero.js"></script>
+  <script>
+    (function () {
+      /**
+       * Obtains parameters from the hash of the URL
+       * @return Object
+       */
+      function getHashParams() {
+        var hashParams = {};
+        var e, r = /([^&;=]+)=?([^&;]*)/g,
+          q = window.location.hash.substring(1);
+        while (e = r.exec(q)) {
+          hashParams[e[1]] = decodeURIComponent(e[2]);
         }
-      })();
-    </script>
+        return hashParams;
+      }
 
+      //Handlebar Teplates
+
+      //User Profile
+      var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+        userProfileTemplate = Handlebars.compile(userProfileSource),
+        userProfilePlaceholder = document.getElementById('user-profile');
+
+      //Recent Track
+      var recentTrackSource = document.getElementById('recent-track-template').innerHTML,
+        recentTrackTemplate = Handlebars.compile(recentTrackSource),
+        recentTrackPlaceholder = document.getElementById('recent-track');
+      //Top Track
+      var topTracksSource = document.getElementById('top-tracks-template').innerHTML,
+        topTracksTemplate = Handlebars.compile(topTracksSource),
+        topTracksPlaceholder = document.getElementById('top-tracks');
+
+      //Top Artists
+      var topArtistsSource = document.getElementById('top-artists-template').innerHTML,
+        topArtistsTemplate = Handlebars.compile(topArtistsSource),
+        topArtistsPlaceholder = document.getElementById('top-artists');
+
+      var params = getHashParams();
+
+      var access_token = params.access_token,
+        refresh_token = params.refresh_token,
+        error = params.error;
+
+      if (error) {
+        alert('There was an error during the authentication');
+      } else {
+        if (access_token) {
+          $.ajax({
+            url: 'https://api.spotify.com/v1/me',
+            headers: {
+              'Authorization': 'Bearer ' + access_token
+            },
+            success: function (response) {
+              console.log(response)
+              userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+
+              $('#login').hide();
+              $('#loggedin').show();
+            }
+          });
+
+          //Render Top Tracks
+          $.ajax({
+            url: 'https://api.spotify.com/v1/me/top/tracks',
+            headers: {
+              'Authorization': 'Bearer ' + access_token
+            },
+            success: function (response) {
+              var topTracks = response.items
+
+              for (let song in topTracks) {
+                var topTracksArt = topTracks[song].album.images[0].url
+
+                let container = document.createElement("div")
+                let topTracksHolder = document.createElement("div")
+                let topTracksImgHolder = document.createElement("img")
+
+                container.setAttribute('class', 'topArtistContainer')
+                topTracksHolder.setAttribute('class', 'topTracksHolder')
+                topTracksImgHolder.setAttribute('src', topTracksArt)
+                topTracksImgHolder.setAttribute('class', 'topTracksArt')
+
+                topTracksHolder.innerHTML = topTracksTemplate(topTracks[song])
+
+                topTrackTemplate = Handlebars.compile(topTracksSource)
+
+                topTracksPlaceholder.appendChild(container)
+                container.appendChild(topTracksHolder)
+                container.appendChild(topTracksImgHolder)
+              }
+              $('#login').hide();
+              $('#loggedin').show();
+            }
+          });
+
+          //Render Top Artists
+          $.ajax({
+            url: 'https://api.spotify.com/v1/me/top/artists',
+            headers: {
+              'Authorization': 'Bearer ' + access_token
+            },
+            success: function (response) {
+              var topArtists = response.items
+              for (let artist in topArtists) {
+                var artistArt = topArtists[artist].images[0].url
+
+                let container = document.createElement("div")
+                let artistHolder = document.createElement("div")
+                let artistImgHolder = document.createElement("img")
+
+                container.setAttribute('class', 'topArtistContainer')
+                artistHolder.setAttribute('class', 'artistHolder')
+                artistImgHolder.setAttribute('src', artistArt)
+                artistImgHolder.setAttribute('class', 'artistArt')
+
+                artistHolder.innerHTML = topArtistsTemplate(topArtists[artist])
+                // console.log(topArtists[artist].images[0].url)
+
+                topArtistsTemplate = Handlebars.compile(topArtistsSource)
+
+                topArtistsPlaceholder.appendChild(container)
+                container.appendChild(artistHolder)
+                container.appendChild(artistImgHolder)
+
+              }
+            }
+          });
+          //Recent Played
+          $.ajax({
+            url: 'https://api.spotify.com/v1/me/player/recently-played',
+            headers: {
+              'Authorization': 'Bearer ' + access_token
+            },
+            success: function (response) {
+              // console.log("Recently Played: " )
+              // console.log( response )
+              var recTrack = response.items
+
+              for (let indTrack in recTrack) {
+                var albumArt = recTrack[indTrack].track.album.images[0].url
+
+                let container = document.createElement("div")
+                let trackHolder = document.createElement("div")
+                let trackPicHolder = document.createElement("img")
+
+                container.setAttribute('class', 'recTrackContainer')
+                trackHolder.setAttribute('class', 'trackHolder')
+                trackPicHolder.setAttribute('class', 'recTrackArt')
+                trackPicHolder.setAttribute('src', albumArt)
+
+                trackHolder.innerHTML = recentTrackTemplate(recTrack[indTrack].track)
+
+                recentTrackTemplate = Handlebars.compile(recentTrackSource)
+
+                recentTrackPlaceholder.appendChild(container)
+                container.appendChild(trackHolder)
+                container.appendChild(trackPicHolder)
+
+
+              }
+            }
+          });
+
+
+        } else {
+          // render initial screen
+          $('#login').show();
+          $('#loggedin').hide();
+        }
+      }
+    })();
+  </script>
 </body>
+
 </html>
