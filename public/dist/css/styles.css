@@ -70,6 +70,7 @@
 #login .icons{
     width: 80px;
     height: auto;
+    margin-right: 42px;
 }
 #login .info__title{
     font-family: 'Oswald', sans-serif;
