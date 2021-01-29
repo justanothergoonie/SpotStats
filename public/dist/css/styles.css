@@ -1,0 +1,252 @@
+/* Login Page */
+#login{
+    /* font-family: 'Oswald', sans-serif */
+    color:white;
+    background: #222121;
+}
+#login header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 20px;
+}
+#login .headlogo{
+    display: flex;
+    flex-direction: row;
+}
+#login header img{
+    width: 50px;
+    height: auto;
+}
+#login header h1{
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    margin: 10px 0px 10px 10px;
+}
+  
+  /* Hero */
+#login .hero__login{
+    text-align: center;
+    margin: 20px;
+    
+}
+#login .hero__wave{
+    background: linear-gradient(90deg, rgba(94,233,124,0.7987570028011204) 0%, rgba(176,232,199,0.7875525210084033) 49%, rgba(92,176,227,0.74) 97%);
+    height: 200px;
+    width:auto;
+    margin-bottom: 13em;
+    padding-bottom: 16em;
+}
+#login .hero__wave p{
+    margin: 0 auto;
+    color: black;
+    font-size: 50px;
+}
+#login button{
+    background: rgb(18, 228, 18);
+    border: white solid 1px;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, -5px 19px 34px 4px rgba(255,255,255,0); 
+    box-shadow: inset 2px 4px 8px 5px #12dc3a, 0px 0px 3px 0px #13de32, -5px 0px 21px 4px rgb(255 255 255 / 31%);
+}
+#login a{
+    font-family:'Oswald', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+  
+  /* info */
+#login .info__section{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+#login .icons{
+    width: 80px;
+    height: auto;
+}
+#login .info__title{
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#login .info__text{
+    font-family:'Oswald', sans-serif;
+    font-weight: 300;
+    line-height: 30px;
+}
+#login .info__charts,
+#login .info__compare,
+#login .info__playlist,
+#login .info__played{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4rem;
+    
+}
+  
+#login .info__description{
+    display: flex;
+    flex-direction: column;
+    margin-left:10px;
+}
+  
+  /* footer */
+#login footer{
+    border-top: white solid 1px;
+    font-family:'Oswald', sans-serif ;
+    font-size: 13px;
+    text-align: left;
+}
+#login .footer p{
+    margin-right: 20px;
+}
+#login .footer__top{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#login footer ul{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+#login footer li{
+    margin-bottom: 20px;
+}
+#login footer a{
+    color:rgb(18, 228, 18);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+  
+  /* Main Page */
+/* #loggedin{
+    color:white;
+}
+#loggedin header{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+#loggedin header img{
+    width: 50px;
+    height: auto;
+}
+#loggedin header h1{
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    margin: 10px 0px 10px 10px;
+} */
+
+
+
+
+/* container */
+/* #loggedin .main__banner{
+    background: linear-gradient(90deg, rgba(94,233,124,0.5) 0%, rgba(176,232,199,0.5) 49%, rgba(92,176,227,0.5) 97%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin:20px;
+}
+#loggedin .main__banner h2{
+    font-family:'Oswald', sans-serif;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+#loggedin .main__banner__img {
+    text-align: center;
+    padding: 15px;
+}
+#loggedin .main__banner__img div{
+    margin: 0 auto;
+}
+#loggedin .circle{
+    background: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: .5px solid grey;
+    margin: 20px;
+}
+#loggedin .top__flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#loggedin .top__flex h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: rgb(28, 28, 122);
+    text-transform: uppercase;
+} */
+
+
+
+/* tabs */
+/* #loggedin .spotify__tab__bar{
+    display: flex;
+    flex-direction: row;
+}
+#loggedin .spotify__tab__button{
+    background: linear-gradient(90deg, rgba(94,233,124,0.5) 0%, rgba(176,232,199,0.5) 49%, rgba(92,176,227,0.5) 97%);
+    border: none;
+    box-shadow: none;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px 5px 0px 0px;
+} */
+
+
+
+
+
+
+/* top songs */
+/* #loggedin .top__song{
+    background: linear-gradient(90deg, rgba(94,233,124,0.5) 0%, rgba(176,232,199,0.5) 49%, rgba(92,176,227,0.5) 97%);
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #222121;
+    margin-bottom: 2rem;
+}
+#loggedin .top__song ul{
+    padding: 1rem;
+}
+#loggedin .top__circle{
+    background: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: .5px solid grey;
+} */
+
+
+/* top Artist */
+/* #loggedin .top__artist{
+    background: linear-gradient(90deg, rgba(94,233,124,0.5) 0%, rgba(176,232,199,0.5) 49%, rgba(92,176,227,0.5) 97%);
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #222121;
+}
+#loggedin .top__artist ul{
+    padding: 1rem;
+} */

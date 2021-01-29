@@ -3,7 +3,7 @@
 // wave 1
 TweenLite.defaultEase = Sine.easeInOut;
 TweenLite.set("g", {
-  y: window.innerHeight / 10
+  y: window.innerHeight / 7
 });
 var svg = document.querySelectorAll("svg");
 var wave = document.querySelectorAll(".wave");

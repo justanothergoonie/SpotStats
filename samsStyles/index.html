@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title> Stats for Spotify </title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="dist/css/reset.css">
+	<link rel="stylesheet" href="dist/css/main.css">
+
+	
+
+</head>
+
+<body>
+
+	<header class="title">
+		<img src="src/img/signal.png" alt="logo">
+		<h1> Spotify Stats</h1>	
+	</header>
+		<div class="container">
+			<section class="main__banner">
+				<div class="main__banner__img">
+					<div class="circle"></div>
+					<h2 class="main__banner__username__title">Username</h2>
+				</div>
+				<div class="top__flex">
+					<div class="manin__banner__img">
+						<h2 class="main__banner__top">Top Artist</h2>
+						<div class="circle"></div>
+						<h2 class="main__banner__artist__name">Artist Name</h2>
+					</div>
+					<div class="manin__banner__img">
+						<h2 class="main__banner__top">
+							Top Song
+						</h2>
+					<div class="circle"></div>
+					<h2 class="main__banner__song__name">Song Name</h2>
+				</div>
+			</section>
+		</div>
+		<div class="spotify__tab__bar">
+			<button class="spotify__tab__button" onclick="openTab('Song')">Top Songs</button>
+			<button class="spotify__tab__button" onclick="openTab('Artist')" >Top Artist</button>
+			<button class="spotify__tab__button" onclick="openTab('Played')" >Recently Played</button>
+		</div>
+		<section class="top__song__tab tab" id="song" >
+			<section class="top__song">
+				<ul class="top__song__number">
+					<li>1<div class="top__circle"></div></li>
+					<li>2<div class="top__circle"></div></li>
+					<li>3<div class="top__circle"></div></li>
+					<li>4<div class="top__circle"></div></li>
+					<li>5<div class="top__circle"></div></li>
+					<li>6<div class="top__circle"></div></li>
+					<li>7<div class="top__circle"></div></li>
+					<li>8<div class="top__circle"></div></li>
+					<li>9<div class="top__circle"></div></li>
+					<li>10<div class="top__circle"></div></li>
+				</ul>
+				<ul class="top__song__name">
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+				</ul>
+				<ul class="top__song__artist">
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+					<li>Artist</li>
+				</ul>
+			</section>
+		</section>
+		<section class="top__song__tab tab" id="artist" style= "display:none">
+			<section class="top__artist">
+				<ul class="top__artist__number">
+					<li>1<div class="top__circle"></div></li>
+					<li>2<div class="top__circle"></div></li>
+					<li>3<div class="top__circle"></div></li>
+					<li>4<div class="top__circle"></div></li>
+					<li>5<div class="top__circle"></div></li>
+					<li>6<div class="top__circle"></div></li>
+					<li>7<div class="top__circle"></div></li>
+					<li>8<div class="top__circle"></div></li>
+					<li>9<div class="top__circle"></div></li>
+					<li>10<div class="top__circle"></div></li>
+				</ul>
+				<ul class="top__artist__name">
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+					<li>Song title</li>
+				</ul>
+			</section>
+		</section>
+		<footer>
+            <p class="footer__top">&copy; 2021- Stats for Spotify	Imprint</p>
+            <p>We are not related to Spotify AB or any of it´s partners in any way</p>
+            <div class="footer__links">
+                <ul>
+                    <li><a href="">Imprint</a></li>
+                    <li><a href="">Privacy</a></li>
+                </ul>
+            </div>
+        </footer>	
+
+	<script src="dist/js/main.js"></script>
+
+</body>
+
+</html>
