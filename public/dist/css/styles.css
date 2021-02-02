@@ -129,30 +129,31 @@
 
   
   /* Main Page */
-/* #loggedin{
+#loggedin{
     color:white;
+    display: none;
 }
-#loggedin header{
+#loggedin .header{
     display: flex;
     flex-direction: row;
     margin: 20px;
 }
-#loggedin header img{
+#loggedin .header img{
     width: 50px;
     height: auto;
 }
-#loggedin header h1{
+#loggedin .header h1{
     color: white;
     font-family: 'Oswald', sans-serif;
     font-size: 30px;
     margin: 10px 0px 10px 10px;
-} */
+}
 
 
 
 
 /* container */
-/* #loggedin .main__banner{
+#loggedin .main__banner{
     background: linear-gradient(90deg, rgba(94,233,124,0.5) 0%, rgba(176,232,199,0.5) 49%, rgba(92,176,227,0.5) 97%);
     display: flex;
     flex-direction: column;
@@ -190,12 +191,12 @@
     margin-bottom: 10px;
     color: rgb(28, 28, 122);
     text-transform: uppercase;
-} */
+}
 
 
 
 /* tabs */
-/* #loggedin .spotify__tab__bar{
+#loggedin .spotify__tab__bar{
     display: flex;
     flex-direction: row;
 }
@@ -208,7 +209,7 @@
     width: 100%;
     margin: 0 auto;
     border-radius: 5px 5px 0px 0px;
-} */
+}
 
 
 
@@ -251,3 +252,14 @@
 #loggedin .top__artist ul{
     padding: 1rem;
 } */
+
+
+/* pages */
+
+.active{
+    display: block;
+}
+
+.inactive{
+    display: none;
+}

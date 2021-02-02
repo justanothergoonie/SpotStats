@@ -109,25 +109,55 @@
 
   <section class="mainPage">
     <div id="loggedin">
-      <div id="user-profile">
+      <div class="header">
+        <img src="dist/img/signal.png" alt="logo">
+        <h1> Spotify Stats</h1>	
+      </div>
+      <div class="dataContainer">
+        <section class="main_banner">
+          <div id="user-profile" class="">
+          </div>
+          <div class="top__flex">
+            <div class="manin__banner__img">
+              <h2 class="main__banner__top">Top Artist</h2>
+              <div class="circle"></div>
+              <h2 id="bannerArtist" class="main__banner__artist__name">Artist Name</h2>
+            </div>
+            <div class="manin__banner__img">
+              <h2 class="main__banner__top">
+                Top Song
+              </h2>
+            <div class="circle"></div>
+            <h2 id="bannerSong" class="main__banner__song__name">Song Name</h2>
+          </div>
+        </section>
+      </div>
+      <div class="spotify__tab__bar">
+        <button id="topSongs" class="spotify__tab__button">Top Songs</button>
+        <button id="recentPlays" class="spotify__tab__button">Recently Played</button>
+        <button id="topArtist" class="spotify__tab__button">Top Artist</button>
       </div>
     </div>
 
     <div class="top-container">
-      <div id="top-tracks">
+      <section id="top-tracks" class="inactive">
         <h2 class="topTracksHeader">Your Top Tracks of All Time</h2>
-      </div>
-      <div id="recent-track">
+      </section>
+      <section id="recent-track" class="inactive">
         <h2 class="recentTracksHeader">Your Most Recent Tracks</h2>
-      </div>
-      <div id="top-artists">
+      </section>
+      <section id="top-artists" class="inactive">
         <h2 class="artistHeader">Your Top Artists</h2>
-      </div>
+      </section>
     </div>
+
   </section>
 
   <script id="user-profile-template" type="text/x-handlebars-template">
-         <h1>Logged in as {{display_name}}</h1>
+         <div class="main__banner__img">
+          <div class="circle"></div>
+          <h2 id="userName" class="main__banner__username__title">{{display_name}}</h2>
+        </div>
       </script>
   <script id="top-tracks-template" type="text/x-handlebars-template">
          <dl class="dl-horizontal">
@@ -151,6 +181,7 @@
   <script src="dist/js/CustomEase.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
   <script src="dist/js/waveHero.js"></script>
+  
   <script>
     (function () {
       /**
@@ -208,9 +239,12 @@
               userProfilePlaceholder.innerHTML = userProfileTemplate(response);
 
               $('#login').hide();
+              $(`#recent-track`).removeClass(`inactive`);
+              $('#recent-track').addClass(`active`);
               $('#loggedin').show();
             }
           });
+          
 
           //Render Top Tracks
           $.ajax({
@@ -323,6 +357,7 @@
       }
     })();
   </script>
+  <script src="dist/js/tabSystem.js"></script>
 </body>
 
 </html>
