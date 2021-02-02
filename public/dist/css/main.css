@@ -322,110 +322,104 @@ h1 {
 	text-decoration: none;
 }
 
-.top-container {
-	display: flex;
-	flex-direction: column;
-	margin: 0 auto;
-}
-
-.top-container #top-tracks {
+.active {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 }
 
-.top-container #top-tracks .topTracksHeader {
+.active .topTracksHeader {
 	width: 100%;
 	font-size: 1.5rem;
 }
 
-.top-container #top-tracks .topArtistContainer {
+.active .topArtistContainer {
 	display: flex;
 	width: 50%;
 	margin-top: 10%;
 }
 
-.top-container #top-tracks .topArtistContainer .topTracksHolder {
+.active .topArtistContainer .topTracksHolder {
 	display: flex;
 	align-items: center;
 	width: 43%;
 	margin: 20px;
 }
 
-.top-container #top-tracks .topArtistContainer .topTracksHolder .dl-horizontal {
+.active .topArtistContainer .topTracksHolder .dl-horizontal {
 	font-size: 1.2rem;
 }
 
-.top-container #top-tracks .topArtistContainer .topTracksArt {
+.active .topArtistContainer .topTracksArt {
 	width: 45%;
 	border-radius: 70%;
 }
 
-.top-container #recent-track {
+.active {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 }
 
-.top-container #recent-track .recentTracksHeader {
+.active .recentTracksHeader {
 	width: 100%;
 	font-size: 1.5rem;
 }
 
-.top-container #recent-track .recTrackContainer {
+.active .recTrackContainer {
 	display: flex;
 	width: 50%;
 	margin-top: 10%;
 }
 
-.top-container #recent-track .recTrackContainer .trackHolder {
+.active .recTrackContainer .trackHolder {
 	display: flex;
 	align-items: center;
 	width: 43%;
 	margin: 20px;
 }
 
-.top-container #recent-track .recTrackContainer .trackHolder .dl-horizontal {
+.active .recTrackContainer .trackHolder .dl-horizontal {
 	font-size: 1.2rem;
 }
 
-.top-container #recent-track .recTrackContainer .recTrackArt {
+.active .recTrackContainer .recTrackArt {
 	width: 45%;
 	border-radius: 70%;
 }
 
-.top-container #top-artists {
+.active {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 }
 
-.top-container #top-artists .artistHeader {
+.active .artistHeader {
 	width: 100%;
 	font-size: 1.5rem;
 }
 
-.top-container #top-artists .topArtistContainer {
+.active .topArtistContainer {
 	display: flex;
 	width: 50%;
 	margin-top: 10%;
 }
 
-.top-container #top-artists .topArtistContainer .artistHolder {
+.active .topArtistContainer .artistHolder {
 	display: flex;
 	align-items: center;
 	width: 43%;
 	margin: 20px;
 }
 
-.top-container #top-artists .topArtistContainer .artistHolder .dl-horizontal {
+.active .topArtistContainer .artistHolder .dl-horizontal {
 	font-size: 1.2rem;
 }
 
-.top-container #top-artists .topArtistContainer .artistArt {
+.active .topArtistContainer .artistArt {
 	width: 45%;
 	border-radius: 70%;
 }
