@@ -203,15 +203,6 @@ a {
 }
 
 /* wave stuff */
-/* .hero{
-    height: 50%;
-	background: #111;
-	width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-} */
 .hero {
 	display: flex;
 	overflow: visible;
@@ -331,118 +322,110 @@ h1 {
 	text-decoration: none;
 }
 
-.container {
-	display: flex;
-	align-content: center;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-}
-
-.container .top-container {
+.top-container {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
 }
 
-.container .top-container #top-tracks {
+.top-container #top-tracks {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 }
 
-.container .top-container #top-tracks .topTracksHeader {
+.top-container #top-tracks .topTracksHeader {
 	width: 100%;
 	font-size: 1.5rem;
 }
 
-.container .top-container #top-tracks .topArtistContainer {
+.top-container #top-tracks .topArtistContainer {
 	display: flex;
 	width: 50%;
 	margin-top: 10%;
 }
 
-.container .top-container #top-tracks .topArtistContainer .topTracksHolder {
+.top-container #top-tracks .topArtistContainer .topTracksHolder {
 	display: flex;
 	align-items: center;
 	width: 43%;
 	margin: 20px;
 }
 
-.container .top-container #top-tracks .topArtistContainer .topTracksHolder .dl-horizontal {
+.top-container #top-tracks .topArtistContainer .topTracksHolder .dl-horizontal {
 	font-size: 1.2rem;
 }
 
-.container .top-container #top-tracks .topArtistContainer .topTracksArt {
+.top-container #top-tracks .topArtistContainer .topTracksArt {
 	width: 45%;
 	border-radius: 70%;
 }
 
-.container .top-container #recent-track {
+.top-container #recent-track {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 }
 
-.container .top-container #recent-track .recentTracksHeader {
+.top-container #recent-track .recentTracksHeader {
 	width: 100%;
 	font-size: 1.5rem;
 }
 
-.container .top-container #recent-track .recTrackContainer {
+.top-container #recent-track .recTrackContainer {
 	display: flex;
 	width: 50%;
 	margin-top: 10%;
 }
 
-.container .top-container #recent-track .recTrackContainer .trackHolder {
+.top-container #recent-track .recTrackContainer .trackHolder {
 	display: flex;
 	align-items: center;
 	width: 43%;
 	margin: 20px;
 }
 
-.container .top-container #recent-track .recTrackContainer .trackHolder .dl-horizontal {
+.top-container #recent-track .recTrackContainer .trackHolder .dl-horizontal {
 	font-size: 1.2rem;
 }
 
-.container .top-container #recent-track .recTrackContainer .recTrackArt {
+.top-container #recent-track .recTrackContainer .recTrackArt {
 	width: 45%;
 	border-radius: 70%;
 }
 
-.container .top-container #top-artists {
+.top-container #top-artists {
 	display: flex;
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
 }
 
-.container .top-container #top-artists .artistHeader {
+.top-container #top-artists .artistHeader {
 	width: 100%;
 	font-size: 1.5rem;
 }
 
-.container .top-container #top-artists .topArtistContainer {
+.top-container #top-artists .topArtistContainer {
 	display: flex;
 	width: 50%;
 	margin-top: 10%;
 }
 
-.container .top-container #top-artists .topArtistContainer .artistHolder {
+.top-container #top-artists .topArtistContainer .artistHolder {
 	display: flex;
 	align-items: center;
 	width: 43%;
 	margin: 20px;
 }
 
-.container .top-container #top-artists .topArtistContainer .artistHolder .dl-horizontal {
+.top-container #top-artists .topArtistContainer .artistHolder .dl-horizontal {
 	font-size: 1.2rem;
 }
 
-.container .top-container #top-artists .topArtistContainer .artistArt {
+.top-container #top-artists .topArtistContainer .artistArt {
 	width: 45%;
 	border-radius: 70%;
 }
