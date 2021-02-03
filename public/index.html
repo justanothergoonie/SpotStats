@@ -106,17 +106,22 @@
     </div>
   </section>
 
-
   <section class="mainPage">
     <div id="loggedin">
       <div class="header">
-        <img src="dist/img/signal.png" alt="logo">
-        <h1> Spotify Stats</h1>	
+        <div class="logo_holder">
+          <div class="logo-img-holder">
+            <img src="dist/img/signal.png" alt="logo">
+          </div>
+          
+          <h1> Spotify Stats</h1>
+        </div>
+        <div id="user-profile" class="">
+        </div>
       </div>
       <div class="dataContainer">
         <section class="main_banner">
-          <div id="user-profile" class="">
-          </div>
+
           <div class="top__flex">
             <div class="manin__banner__img">
               <h2 class="main__banner__top">Top Artist</h2>
@@ -155,10 +160,9 @@
   </section>
 
   <script id="user-profile-template" type="text/x-handlebars-template">
-         <div class="main__banner__img">
-          <div class="circle"></div>
+
           <h2 id="userName" class="main__banner__username__title">{{display_name}}</h2>
-        </div>
+
       </script>
   <script id="top-tracks-template" type="text/x-handlebars-template">
          <dl class="dl-horizontal">
@@ -182,6 +186,7 @@
   <script src="dist/js/CustomEase.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
   <script src="dist/js/waveHero.js"></script>
+  <script src="dist/js/headerScrollControl.js"></script>
   
   <script>
     (function () {
@@ -236,8 +241,16 @@
               'Authorization': 'Bearer ' + access_token
             },
             success: function (response) {
-              console.log(response)
+              console.log(response.images[0].url)
+              
               userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+              let profileImg = document.createElement("img")
+              let profileImgHolder = document.createElement('div')
+              var userImg = response.images[0].url;
+              profileImg.setAttribute('src', userImg)
+              profileImgHolder.setAttribute('class', 'profileImgHolder')
+              profileImgHolder.appendChild(profileImg)
+              userProfilePlaceholder.appendChild(profileImgHolder)
 
               $('#login').hide();
               $(`#recent-track`).removeClass(`inactive`);

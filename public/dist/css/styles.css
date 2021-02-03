@@ -133,25 +133,6 @@
     color:white;
     display: none;
 }
-#loggedin .header{
-    display: flex;
-    flex-direction: row;
-    margin: 20px;
-}
-#loggedin .header img{
-    width: 50px;
-    height: auto;
-}
-#loggedin .header h1{
-    color: white;
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
-    margin: 10px 0px 10px 10px;
-}
-
-
-
-
 /* container */
 #loggedin .main__banner{
     background: linear-gradient(90deg, rgba(94,233,124,0.5) 0%, rgba(176,232,199,0.5) 49%, rgba(92,176,227,0.5) 97%);

@@ -31,9 +31,9 @@ h1 {
 	color: white;
 }
 
-.container {
-	background-color: #111;
-}
+// .container {
+// 	background-color: #111;
+// }
 
 .waveHero {
 	width: fit-content;
@@ -79,12 +79,6 @@ h1 {
 			border-radius: 70%;
 		}
 	}
-}
-.active {
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	flex-wrap: wrap;
 	.recentTracksHeader {
 		width: 100%;
 		font-size: 1.5rem;
@@ -107,12 +101,6 @@ h1 {
 			border-radius: 70%;
 		}
 	}
-}
-.active {
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	flex-wrap: wrap;
 	.artistHeader {
 		width: 100%;
 		font-size: 1.5rem;
@@ -133,6 +121,129 @@ h1 {
 		.artistArt {
 			width: 45%;
 			border-radius: 70%;
+		}
+	}
+}
+
+.header {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	transition: all 2s ease;
+	background: rgb(30, 126, 77);
+	background: linear-gradient(
+		90deg,
+		rgba(30, 126, 77, 1) 0%,
+		rgba(30, 126, 77, 0.75) 25%,
+		rgba(67, 98, 119, 0.75) 50%,
+		rgba(67, 98, 119, 0.75) 75%,
+		rgba(67, 98, 119, 0.25) 100%
+	);
+	.logo_holder {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		.logo-img-holder {
+			width: 30%;
+			transition: all 1s ease;
+			img {
+				width: 100%;
+			}
+		}
+		@include bp-med {
+			@include flex-center;
+		}
+
+		h1 {
+			color: white;
+		}
+	}
+	#user-profile {
+		display: none;
+		@include bp-med {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 50%;
+			#userName {
+				font-size: 1.5rem;
+				width: 30%;
+			}
+			.profileImgHolder {
+				width: 30%;
+				img {
+					width: 100%;
+					border-radius: 50%;
+				}
+			}
+		}
+	}
+	&.compressed {
+		position: fixed;
+		z-index: 100;
+		transition: all 2s ease;
+		background: rgb(30, 126, 77);
+		background: linear-gradient(
+			90deg,
+			rgba(30, 126, 77, 1) 0%,
+			rgba(30, 126, 77, 0.75) 25%,
+			rgba(67, 98, 119, 0.75) 50%,
+			rgba(67, 98, 119, 0.75) 75%,
+			rgba(67, 98, 119, 0.25) 100%
+		);
+		.logo_holder {
+			width: 90%;
+			justify-content: right;
+			.logo-img-holder {
+				width: 10%;
+				transition: all 1s ease;
+				img {
+					width: 100%;
+				}
+			}
+			h1 {
+				font-size: 1.5rem;
+			}
+			@include bp-med {
+				width: 50%;
+				justify-content: right;
+				margin-left: 5%;
+				.logo-img-holder {
+					width: 10%;
+					transition: all 1s ease;
+					img {
+						width: 100%;
+					}
+				}
+				h1 {
+					font-size: 1.5rem;
+				}
+			}
+		}
+		#user-profile {
+			display: none;
+			@include bp-med {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				width: 50%;
+				margin-right: 5%;
+				#userName {
+					font-size: 1rem;
+					width: 30%;
+				}
+				.profileImgHolder {
+					width: 15%;
+					margin-right: 5%;
+					transition: all 1s ease;
+					img {
+						width: 100%;
+						margin: 5px 0px;
+					}
+				}
+			}
 		}
 	}
 }
