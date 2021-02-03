@@ -43,20 +43,98 @@
     font-size: 50px;
 }
 #login button{
-    background: rgb(18, 228, 18);
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    /* background: rgb(18, 228, 18);
     border: white solid 1px;
     border-radius: 5px;
     padding: 10px;
     margin-top: 4rem;
     margin-bottom: 4rem;
     -webkit-box-shadow: inset -1px 3px 8px 5px #1F87FF, 2px 5px 16px 0px #0B325E, -5px 19px 34px 4px rgba(255,255,255,0); 
-    box-shadow: inset 2px 4px 8px 5px #12dc3a, 0px 0px 3px 0px #13de32, -5px 0px 21px 4px rgb(255 255 255 / 31%);
+    box-shadow: inset 2px 4px 8px 5px #12dc3a, 0px 0px 3px 0px #13de32, -5px 0px 21px 4px rgb(255 255 255 / 31%); */
 }
 #login a{
-    font-family:'Oswald', sans-serif;
+    border: none;
+    width: 1.3em;
+    /* font-family:'Oswald', sans-serif;
     font-size: 18px;
     text-decoration: none;
-    color: white;
+    color: white; */
+}
+
+#login .spotify{
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+}
+/*Nia Brewster*/
+#login .circle{
+    margin: 25px 25px ;
+    position: absolute;
+    background-color: #1DB954;
+    height: 130px;
+    width: 130px;
+    border-radius: 250px;
+    border: .42px rgba(255, 255, 255, .42) solid;
+    box-shadow: 5px 5px 50px #888888
+}
+/* All bar properties*/ 
+#login .bar{
+    position: absolute;
+    width: 130px;
+    height: 30px;
+    border-radius: 50%;
+    border: 15px solid white;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+  /* individual bar rotations, sizes, and positions*/
+#login .bar1 {
+    transform: rotate(8deg)scale(.8);
+    top: 62px;
+    left: -65px;
+}
+  
+#login .bar2 {
+    transform: rotate(8deg)scale(.7);
+    top: 89px;
+    left: -67px;
+}
+  
+#login .bar3 {
+    transform:rotate(8deg)scale(.6);
+    top: 111px;
+    left: -67px;
+}
+  
+  /*circles before and after bars to make rounded edges*/
+#login .bar::before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 10.3px;
+    height: 10.3px;
+    border-radius: 50%;
+    background-color:white;
+    top: -8px;
+    left: -5px;
+}
+  
+#login .bar::after{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 9.3px;
+    height: 9.3px;
+    border-radius: 50%;
+    background-color:white;
+    top:-8px;
+    left:100px;
 }
   
   /* info */
@@ -104,6 +182,7 @@
     font-family:'Oswald', sans-serif ;
     font-size: 13px;
     text-align: left;
+    margin-top: auto;
 }
 #login .footer p{
     margin-right: 20px;
@@ -256,9 +335,9 @@
 
 /* pages */
 
-/* .active{
+.active{
     display: block;
-} */
+}
 
 .inactive{
     display: none;
