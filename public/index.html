@@ -29,7 +29,6 @@
           <img src="../dist/img/signal.png" alt="logo">
           <h1> Spotify Stats</h1>	
         </div>
-        <a href="/login">login</a>
       </header>
         <div class="hero__login">
           <div class="hero__wave">
@@ -172,7 +171,7 @@
       </div>
       <div class="spotify__tab__bar">
         <button id="topSongs" class="spotify__tab__button">Top Songs</button>
-        <button id="recentPlays" class="spotify__tab__button">Recently Played</button>
+        <button id="recentPlays" class="spotify__tab__button activeTab">Recently Played</button>
         <button id="topArtist" class="spotify__tab__button">Top Artist</button>
       </div>
     </div>
@@ -286,7 +285,7 @@
               userProfilePlaceholder.appendChild(profileImgHolder)
 
               $('#login').hide();
-              $(`#recent-track`).removeClass(`inactive`);
+              $('#recent-track').removeClass(`inactive`);
               $('#recent-track').addClass(`active`);
               $('#loggedin').show();
             }
