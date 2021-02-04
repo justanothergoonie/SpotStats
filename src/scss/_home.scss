@@ -13,13 +13,12 @@ body {
 	display: flex;
 	justify-content: space-between;
 	color: #fff;
-}
-
-.headbar a {
-	text-decoration: none;
-	text-transform: capitalize;
-	color: #fff;
-	font-size: 1.3em;
+	a {
+		text-decoration: none;
+		text-transform: capitalize;
+		color: #fff;
+		font-size: 1.3em;
+	}
 }
 
 .headlogo {
@@ -65,13 +64,25 @@ h1 {
 		display: flex;
 		width: 50%;
 		margin-top: 10%;
+		justify-content: center;
+		flex-direction: row-reverse;
+		@include bp-med {
+			width: 50%;
+		}
 		.topTracksHolder {
 			display: flex;
 			align-items: center;
-			width: 43%;
-			margin: 20px;
+			justify-content: center;
+			margin-left: 20px;
+			width: 25%;
 			.dl-horizontal {
-				font-size: 1.2rem;
+				font-size: 1.5rem;
+				@include bp-med {
+					font-size: 1.2rem;
+				}
+				dt {
+					text-align: center;
+				}
 			}
 		}
 		.topTracksArt {
@@ -85,15 +96,33 @@ h1 {
 	}
 	.recTrackContainer {
 		display: flex;
-		width: 50%;
 		margin-top: 10%;
+		justify-content: center;
+		flex-direction: row-reverse;
+		width: 100%;
+		@include bp-med {
+			width: 50%;
+		}
+
 		.trackHolder {
 			display: flex;
 			align-items: center;
-			width: 43%;
-			margin: 20px;
+			// justify-content: center;
+			margin-left: 20px;
+			width: 25%;
 			.dl-horizontal {
-				font-size: 1.2rem;
+				font-size: 1.5rem;
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+				height: 50%;
+				@include bp-med {
+					font-size: 1.2rem;
+					height: 40%;
+				}
+				dt {
+					text-align: center;
+				}
 			}
 		}
 		.recTrackArt {
@@ -109,13 +138,25 @@ h1 {
 		display: flex;
 		width: 50%;
 		margin-top: 10%;
+		justify-content: center;
+		flex-direction: row-reverse;
+		@include bp-med {
+			width: 50%;
+		}
 		.artistHolder {
 			display: flex;
 			align-items: center;
-			width: 43%;
-			margin: 20px;
+			justify-content: center;
+			width: 25%;
+			margin-left: 20px;
 			.dl-horizontal {
-				font-size: 1.2rem;
+				font-size: 1.5rem;
+				@include bp-med {
+					font-size: 1.2rem;
+				}
+				dt {
+					text-align: center;
+				}
 			}
 		}
 		.artistArt {

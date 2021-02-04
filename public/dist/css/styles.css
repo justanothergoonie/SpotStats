@@ -335,10 +335,10 @@
 
 
 /* pages */
-
-.active{
-    display: block;
-}
+/* there is already an active state under _home.scss
+/* .active{
+    display: flex;
+} */
 
 .inactive{
     display: none;

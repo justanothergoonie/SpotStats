@@ -156,15 +156,15 @@
             <div class="top__flex">
               <div class="manin__banner__img">
                 <h2 class="main__banner__top">Top Artist</h2>
-                <div class="circle"></div>
-                <h2 id="bannerArtist" class="main__banner__artist__name">Artist Name</h2>
+                <!-- <div class="circle"></div> -->
+                <!-- <h2 id="bannerArtist" class="main__banner__artist__name">Artist Name</h2> -->
               </div>
               <div class="manin__banner__img">
                 <h2 class="main__banner__top">
                   Top Song
                 </h2>
-              <div class="circle"></div>
-              <h2 id="bannerSong" class="main__banner__song__name">Song Name</h2>
+              <!-- <div class="circle"></div> -->
+              <!-- <h2 id="bannerSong" class="main__banner__song__name">Song Name</h2> -->
             </div>
           </div>
         </section>
@@ -191,11 +191,13 @@
 
   </section>
 
+  <script id="top-template" type="text/x-handlebars-template">
+  
+  </script>
+
   <script id="user-profile-template" type="text/x-handlebars-template">
-
           <h2 id="userName" class="main__banner__username__title">{{display_name}}</h2>
-
-      </script>
+  </script>
   <script id="top-tracks-template" type="text/x-handlebars-template">
          <dl class="dl-horizontal">
            <dt>{{name}}</dt>
@@ -238,6 +240,10 @@
 
       //Handlebar Teplates
 
+      //top template
+      var topTemplateSource = document.getElementById('top-template').innerHTML,
+      topTemplate = Handlebars.compile(topTemplateSource)
+      topTemplatePlaceholder = document.getElementById('top__flex');
       //User Profile
       var userProfileSource = document.getElementById('user-profile-template').innerHTML,
         userProfileTemplate = Handlebars.compile(userProfileSource),
@@ -279,8 +285,10 @@
               let profileImg = document.createElement("img")
               let profileImgHolder = document.createElement('div')
               var userImg = response.images[0].url;
+
               profileImg.setAttribute('src', userImg)
               profileImgHolder.setAttribute('class', 'profileImgHolder')
+
               profileImgHolder.appendChild(profileImg)
               userProfilePlaceholder.appendChild(profileImgHolder)
 
@@ -300,10 +308,17 @@
             },
             success: function (response) {
               var topTracks = response.items
+              var topTrack = topTracks[0].name
+              var topTrackArtist = topTracks[0].artists[0].name
 
+              let topTrackTag = document.createElement("h2")
+              let topTrackImg = document.createElement("img")
+              let topTrackArtistTag= document.createElement("h2")
+              // console.log(topTracks[0].artists[0].name)
+              console.log(topTracks[0])
               for (let song in topTracks) {
                 var topTracksArt = topTracks[song].album.images[0].url
-
+                
                 let container = document.createElement("div")
                 let topTracksHolder = document.createElement("div")
                 let topTracksImgHolder = document.createElement("img")
