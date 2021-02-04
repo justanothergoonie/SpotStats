@@ -153,7 +153,7 @@
               </div>
             </div>
 
-            <div class="top__flex">
+            <div id="top__flex">
               <div class="manin__banner__img">
                 <h2 class="main__banner__top">Top Artist</h2>
                 <!-- <div class="circle"></div> -->
@@ -178,13 +178,13 @@
   
     
       <section id="top-tracks" class="inactive">
-        <h2 class="topTracksHeader">Your Top Tracks of All Time</h2>
+        
       </section>
       <section id="recent-track" class="inactive">
-        <h2 class="recentTracksHeader">Your Most Recent Tracks</h2>
+        
       </section>
       <section id="top-artists" class="inactive">
-        <h2 class="artistHeader">Your Top Artists</h2>
+     
       </section>
     
  
@@ -242,8 +242,8 @@
 
       //top template
       var topTemplateSource = document.getElementById('top-template').innerHTML,
-      topTemplate = Handlebars.compile(topTemplateSource)
-      topTemplatePlaceholder = document.getElementById('top__flex');
+        topTemplate = Handlebars.compile(topTemplateSource)
+        topTemplatePlaceholder = document.getElementById('top__flex');
       //User Profile
       var userProfileSource = document.getElementById('user-profile-template').innerHTML,
         userProfileTemplate = Handlebars.compile(userProfileSource),
@@ -310,12 +310,28 @@
               var topTracks = response.items
               var topTrack = topTracks[0].name
               var topTrackArtist = topTracks[0].artists[0].name
+              
+              let allTimeTopTrackHolder = document.createElement("div")
+              allTimeTopTrackHolder.setAttribute('class', 'all-time-top-track')
 
               let topTrackTag = document.createElement("h2")
+              topTrackTag.innerHTML = "TOP TRACK"
+
               let topTrackImg = document.createElement("img")
+              topTrackImg.setAttribute('src', topTracks[0].album.images[0].url)
+
               let topTrackArtistTag= document.createElement("h2")
-              // console.log(topTracks[0].artists[0].name)
-              console.log(topTracks[0])
+              topTrackArtistTag.innerHTML = topTrack
+              
+              allTimeTopTrackHolder.appendChild(topTrackTag)
+              allTimeTopTrackHolder.appendChild(topTrackImg)
+              allTimeTopTrackHolder.appendChild(topTrackArtistTag)
+              topTemplatePlaceholder.appendChild(allTimeTopTrackHolder)
+
+              // console.log(topTemplatePlaceholder)
+              
+
+              console.log(topTracks[0].name)
               for (let song in topTracks) {
                 var topTracksArt = topTracks[song].album.images[0].url
                 
@@ -335,6 +351,7 @@
                 topTracksPlaceholder.appendChild(container)
                 container.appendChild(topTracksHolder)
                 container.appendChild(topTracksImgHolder)
+                
               }
               $('#login').hide();
               $('#loggedin').show();
@@ -349,6 +366,28 @@
             },
             success: function (response) {
               var topArtists = response.items
+              var topArtistName = response.items[0].name
+              var topArtistImgUrl = response.items[0].images[0].url
+
+              let allTimeTopArtistHolder = document.createElement("div")
+              allTimeTopArtistHolder.setAttribute('class', 'all-time-top-artist')
+
+              let topArtistTag = document.createElement("h2")
+              topArtistTag.innerHTML = "TOP ARTIST"
+
+              let topArtistImg = document.createElement("img")
+              topArtistImg.setAttribute('src', topArtistImgUrl)
+
+              let topArtistNameTag = document.createElement("h2")
+              topArtistNameTag.innerHTML = topArtistName
+
+              allTimeTopArtistHolder.appendChild(topArtistTag)
+              allTimeTopArtistHolder.appendChild(topArtistImg)
+              allTimeTopArtistHolder.appendChild(topArtistNameTag)
+              topTemplatePlaceholder.appendChild(allTimeTopArtistHolder)
+              
+
+
               for (let artist in topArtists) {
                 var artistArt = topArtists[artist].images[0].url
 
