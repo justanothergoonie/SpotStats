@@ -129,7 +129,7 @@ h1 {
 	display: flex;
 	width: 100%;
 	justify-content: center;
-	transition: all 2s ease;
+	transition: all 1s ease;
 	background: rgb(30, 126, 77);
 	background: linear-gradient(
 		90deg,
@@ -183,7 +183,7 @@ h1 {
 	&.compressed {
 		position: fixed;
 		z-index: 100;
-		transition: all 2s ease;
+		transition: all 1s ease;
 		background: rgb(30, 126, 77);
 		background: linear-gradient(
 			90deg,
