@@ -234,18 +234,18 @@
     text-align: center;
     padding: 15px;
 }
-#loggedin .main__banner__img div{
+/* #loggedin .main__banner__img div{
     margin: 0 auto;
-}
-#loggedin .circle{
+} */
+/* #loggedin .circle{
     background: white;
     width: 300px;
     height: 300px;
     border-radius: 50%;
     border: .5px solid grey;
     margin: 20px;
-}
-#loggedin .top__flex{
+} */
+/* #loggedin .top__flex{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -255,18 +255,18 @@
     padding: .5em 1em;
     border-radius: 5px;
     margin: 30px 0px;
-}
-#loggedin .flexBKGD{
+} */
+/* #loggedin .flexBKGD{
     display: flex;
     justify-content: center;
-}
-#loggedin .top__flex h2{
+} */
+/* #loggedin .top__flex h2{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 10px;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
-}
+} */
 
 
 

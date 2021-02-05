@@ -129,7 +129,7 @@
       </div>
       <div class="dataContainer">
         <section class="main_banner">
-          <div class="flexBKGD">
+          
             <div class="heroBody">
               <div class="hero">
                 <svg class="svg1">
@@ -154,19 +154,9 @@
             </div>
 
             <div id="top__flex">
-              <div class="manin__banner__img">
-                <h2 class="main__banner__top">Top Artist</h2>
-                <!-- <div class="circle"></div> -->
-                <!-- <h2 id="bannerArtist" class="main__banner__artist__name">Artist Name</h2> -->
-              </div>
-              <div class="manin__banner__img">
-                <h2 class="main__banner__top">
-                  Top Song
-                </h2>
-              <!-- <div class="circle"></div> -->
-              <!-- <h2 id="bannerSong" class="main__banner__song__name">Song Name</h2> -->
+           
             </div>
-          </div>
+         
         </section>
       </div>
       <div class="spotify__tab__bar">
@@ -317,14 +307,18 @@
               let topTrackTag = document.createElement("h2")
               topTrackTag.innerHTML = "TOP TRACK"
 
+              let topTrackImgHolder = document.createElement('div')
+              topTrackImgHolder.setAttribute('class', 'topTrackImgHolder')
+
               let topTrackImg = document.createElement("img")
               topTrackImg.setAttribute('src', topTracks[0].album.images[0].url)
+              topTrackImgHolder.appendChild(topTrackImg)
 
               let topTrackArtistTag= document.createElement("h2")
               topTrackArtistTag.innerHTML = topTrack
               
               allTimeTopTrackHolder.appendChild(topTrackTag)
-              allTimeTopTrackHolder.appendChild(topTrackImg)
+              allTimeTopTrackHolder.appendChild(topTrackImgHolder)
               allTimeTopTrackHolder.appendChild(topTrackArtistTag)
               topTemplatePlaceholder.appendChild(allTimeTopTrackHolder)
 
@@ -375,14 +369,18 @@
               let topArtistTag = document.createElement("h2")
               topArtistTag.innerHTML = "TOP ARTIST"
 
+              let topArtistImgHolder = document.createElement('div')
+              topArtistImgHolder.setAttribute('class', 'topArtistImgHolder')
+
               let topArtistImg = document.createElement("img")
               topArtistImg.setAttribute('src', topArtistImgUrl)
+              topArtistImgHolder.appendChild(topArtistImg)
 
               let topArtistNameTag = document.createElement("h2")
               topArtistNameTag.innerHTML = topArtistName
 
               allTimeTopArtistHolder.appendChild(topArtistTag)
-              allTimeTopArtistHolder.appendChild(topArtistImg)
+              allTimeTopArtistHolder.appendChild(topArtistImgHolder)
               allTimeTopArtistHolder.appendChild(topArtistNameTag)
               topTemplatePlaceholder.appendChild(allTimeTopArtistHolder)
               

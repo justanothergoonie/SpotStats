@@ -217,6 +217,7 @@ h1 {
 				img {
 					width: 100%;
 					border-radius: 50%;
+					margin: 1% 0%;
 				}
 			}
 		}
@@ -225,6 +226,7 @@ h1 {
 		position: fixed;
 		z-index: 100;
 		transition: all 1s ease;
+		top: 0;
 		background: rgb(30, 126, 77);
 		background: linear-gradient(
 			90deg,
@@ -284,6 +286,48 @@ h1 {
 						margin: 5px 0px;
 					}
 				}
+			}
+		}
+	}
+}
+
+#top__flex {
+	display: flex;
+	width: 50%;
+	text-align: center;
+	margin: 5% auto;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.5);
+	.all-time-top-artist {
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		h2 {
+			margin: 5% 0;
+		}
+		.topArtistImgHolder {
+			width: 70%;
+
+			margin: 5% auto;
+
+			img {
+				width: 100%;
+				border-radius: 50%;
+			}
+		}
+	}
+	.all-time-top-track {
+		display: flex;
+		flex-direction: column;
+		h2 {
+			margin: 5% 0;
+		}
+		.topTrackImgHolder {
+			width: 70%;
+			margin: 5% auto;
+			img {
+				width: 100%;
+				border-radius: 50%;
 			}
 		}
 	}

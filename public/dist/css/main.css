@@ -526,6 +526,7 @@ h1 {
 	.header #user-profile .profileImgHolder img {
 		width: 100%;
 		border-radius: 50%;
+		margin: 1% 0%;
 	}
 }
 
@@ -533,6 +534,7 @@ h1 {
 	position: fixed;
 	z-index: 100;
 	transition: all 1s ease;
+	top: 0;
 	background: #1e7e4d;
 	background: linear-gradient(90deg, #1e7e4d 0%, rgba(30, 126, 77, 0.75) 25%, rgba(67, 98, 119, 0.75) 50%, rgba(67, 98, 119, 0.75) 75%, rgba(67, 98, 119, 0.25) 100%);
 }
@@ -598,6 +600,54 @@ h1 {
 		width: 100%;
 		margin: 5px 0px;
 	}
+}
+
+#top__flex {
+	display: flex;
+	width: 50%;
+	text-align: center;
+	margin: 5% auto;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.5);
+}
+
+#top__flex .all-time-top-artist {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#top__flex .all-time-top-artist h2 {
+	margin: 5% 0;
+}
+
+#top__flex .all-time-top-artist .topArtistImgHolder {
+	width: 70%;
+	margin: 5% auto;
+}
+
+#top__flex .all-time-top-artist .topArtistImgHolder img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+#top__flex .all-time-top-track {
+	display: flex;
+	flex-direction: column;
+}
+
+#top__flex .all-time-top-track h2 {
+	margin: 5% 0;
+}
+
+#top__flex .all-time-top-track .topTrackImgHolder {
+	width: 70%;
+	margin: 5% auto;
+}
+
+#top__flex .all-time-top-track .topTrackImgHolder img {
+	width: 100%;
+	border-radius: 50%;
 }
 
 /*# sourceMappingURL=main.css.map */
