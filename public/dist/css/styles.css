@@ -120,7 +120,6 @@
     display: flex;
     position: absolute;
     margin-left: -28px;
-    bottom: 42.5%;
 }
   
   /*circles before and after bars to make rounded edges*/
@@ -361,4 +360,18 @@
 
 .inactive{
     display: none;
+}
+
+@media screen and (min-width: 1024px){
+    #login .info__section{
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        columns: 2;
+        flex: 2;
+        justify-content: space-between;
+    }
+    #login .promises{
+        width: 40%;
+    }
 }
