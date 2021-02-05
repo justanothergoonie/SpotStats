@@ -111,6 +111,17 @@
     top: 111px;
     left: -67px;
 }
+
+#login .loginButtText{
+    text-transform: uppercase;
+    font-weight: 300;
+    color: ivory;
+    font-size: 1.3em;
+    display: flex;
+    position: absolute;
+    margin-left: -28px;
+    bottom: 42.5%;
+}
   
   /*circles before and after bars to make rounded edges*/
 #login .bar::before{
@@ -144,6 +155,13 @@
     margin: 20px;
     text-align: left;
 }
+
+#login .iconContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #login .icons{
     width: 80px;
     height: auto;
@@ -267,6 +285,7 @@
     color: rgb(255, 255, 255);
     text-transform: uppercase;
 } */
+
 
 
 
