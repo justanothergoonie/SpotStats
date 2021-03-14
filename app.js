@@ -22,6 +22,7 @@ var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
  * @param  {number} length The length of the string
  * @return {string} The generated string
  */
+console.log('hello world');
 var generateRandomString = function (length) {
 	var text = '';
 	var possible =
