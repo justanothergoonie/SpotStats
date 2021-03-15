@@ -339,54 +339,20 @@ h1 {
 	font-size: 1.5rem;
 }
 
-.active .topArtistContainer {
-	display: -webkit-flex;
-	display: flex;
+.active a {
 	width: 100%;
-	margin: 5% 0;
 	-webkit-justify-content: center;
 	        justify-content: center;
-	-webkit-flex-direction: row-reverse;
-	        flex-direction: row-reverse;
+	overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
-	.active .topArtistContainer {
+	.active a {
 		width: 50%;
 	}
 }
 
-.active .topArtistContainer .topTracksHolder {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-align-items: center;
-	        align-items: center;
-	-webkit-justify-content: center;
-	        justify-content: center;
-	margin-left: 20px;
-	width: 25%;
-}
-
-.active .topArtistContainer .topTracksHolder .dl-horizontal {
-	font-size: 1.5rem;
-}
-
-@media screen and (min-width: 768px) {
-	.active .topArtistContainer .topTracksHolder .dl-horizontal {
-		font-size: 1.2rem;
-	}
-}
-
-.active .topArtistContainer .topTracksHolder .dl-horizontal dt {
-	text-align: center;
-}
-
-.active .topArtistContainer .topTracksArt {
-	width: 45%;
-	border-radius: 70%;
-}
-
-.active .recTrackContainer {
+.active a .topArtistContainer {
 	display: -webkit-flex;
 	display: flex;
 	margin: 5% 0;
@@ -396,7 +362,60 @@ h1 {
 	        flex-direction: row-reverse;
 }
 
-.active .recTrackContainer .trackHolder {
+.active a .topArtistContainer .topTracksHolder {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	margin-left: 20px;
+	width: 25%;
+}
+
+.active a .topArtistContainer .topTracksHolder .dl-horizontal {
+	font-size: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+	.active a .topArtistContainer .topTracksHolder .dl-horizontal {
+		font-size: 1.2rem;
+	}
+}
+
+.active a .topArtistContainer .topTracksHolder .dl-horizontal dt {
+	text-align: center;
+}
+
+.active a .topArtistContainer .topTracksArt {
+	width: 45%;
+	border-radius: 70%;
+}
+
+.active a {
+	width: 100%;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+	.active a {
+		width: 50%;
+	}
+}
+
+.active a .recTrackContainer {
+	display: -webkit-flex;
+	display: flex;
+	margin: 5% 0;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	-webkit-flex-direction: row-reverse;
+	        flex-direction: row-reverse;
+}
+
+.active a .recTrackContainer .trackHolder {
 	display: -webkit-flex;
 	display: flex;
 	-webkit-align-items: center;
@@ -405,7 +424,7 @@ h1 {
 	width: 25%;
 }
 
-.active .recTrackContainer .trackHolder .dl-horizontal {
+.active a .recTrackContainer .trackHolder .dl-horizontal {
 	font-size: 1.5rem;
 	display: -webkit-flex;
 	display: flex;
@@ -417,25 +436,37 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-	.active .recTrackContainer .trackHolder .dl-horizontal {
+	.active a .recTrackContainer .trackHolder .dl-horizontal {
 		font-size: 1.2rem;
 		height: 40%;
 	}
 }
 
-.active .recTrackContainer .trackHolder .dl-horizontal dt {
+.active a .recTrackContainer .trackHolder .dl-horizontal dt {
 	text-align: center;
 }
 
-.active .recTrackContainer .recTrackArt {
+.active a .recTrackContainer .recTrackArt {
 	width: 45%;
 	border-radius: 70%;
 }
 
-.active .topArtistContainer {
+.active a {
+	width: 100%;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+	.active a {
+		width: 50%;
+	}
+}
+
+.active a .topArtistContainer {
 	display: -webkit-flex;
 	display: flex;
-	width: 100%;
 	margin: 5% 0;
 	-webkit-justify-content: center;
 	        justify-content: center;
@@ -443,13 +474,7 @@ h1 {
 	        flex-direction: row-reverse;
 }
 
-@media screen and (min-width: 768px) {
-	.active .topArtistContainer {
-		width: 50%;
-	}
-}
-
-.active .topArtistContainer .artistHolder {
+.active a .topArtistContainer .artistHolder {
 	display: -webkit-flex;
 	display: flex;
 	-webkit-align-items: center;
@@ -460,21 +485,21 @@ h1 {
 	margin-left: 20px;
 }
 
-.active .topArtistContainer .artistHolder .dl-horizontal {
+.active a .topArtistContainer .artistHolder .dl-horizontal {
 	font-size: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {
-	.active .topArtistContainer .artistHolder .dl-horizontal {
+	.active a .topArtistContainer .artistHolder .dl-horizontal {
 		font-size: 1.2rem;
 	}
 }
 
-.active .topArtistContainer .artistHolder .dl-horizontal dt {
+.active a .topArtistContainer .artistHolder .dl-horizontal dt {
 	text-align: center;
 }
 
-.active .topArtistContainer .artistArt {
+.active a .topArtistContainer .artistArt {
 	width: 45%;
 	border-radius: 70%;
 }
@@ -654,18 +679,6 @@ h1 {
 	border: 1px solid white;
 	background: #1e7e4d;
 	background: linear-gradient(90deg, #1e7e4d 0%, #1e7e4d 25%, #1e7e76 50%, #436277 75%, #436277 100%);
-}
-
-a {
-	width: 100%;
-	-webkit-justify-content: center;
-	        justify-content: center;
-}
-
-@media screen and (min-width: 768px) {
-	a {
-		width: 50%;
-	}
 }
 
 #top__flex {

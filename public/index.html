@@ -280,7 +280,7 @@
               'Authorization': 'Bearer ' + access_token
             },
             success: function (response) {
-              console.log(response.images[0].url)
+              // console.log(response.images[0].url)
               
               userProfilePlaceholder.innerHTML = userProfileTemplate(response);
               let profileImg = document.createElement("img")
@@ -310,11 +310,14 @@
             success: function (response) {
               var topTracks = response.items
               var topTrack = topTracks[0].name
-              // var trackLink = topTracks
+              var topTrackLink = topTracks[0].external_urls.spotify
               var topTrackArtist = topTracks[0].artists[0].name
               
-              let allTimeTopTrackHolder = document.createElement("div")
+    
+              let allTimeTopTrackHolder = document.createElement("a")
               allTimeTopTrackHolder.setAttribute('class', 'all-time-top-track')
+              allTimeTopTrackHolder.setAttribute('href', topTrackLink)
+              allTimeTopTrackHolder.setAttribute('target', "_blank")
 
               let topTrackTag = document.createElement("h2")
               topTrackTag.innerHTML = "TOP TRACK"
@@ -331,6 +334,7 @@
               
               allTimeTopTrackHolder.appendChild(topTrackTag)
               allTimeTopTrackHolder.appendChild(topTrackImgHolder)
+
               allTimeTopTrackHolder.appendChild(topTrackArtistTag)
               topTemplatePlaceholder.appendChild(allTimeTopTrackHolder)
 
@@ -350,7 +354,7 @@ let trackLink = document.createElement("a")
                 let topTracksImgHolder = document.createElement("img")
 
                 trackLink.setAttribute('href', topTracksLinks)
-                // console.log(trackLink)
+                trackLink.setAttribute('target', "_blank")
                 container.setAttribute('class', 'topArtistContainer')
                 topTracksHolder.setAttribute('class', 'topTracksHolder')
                 topTracksImgHolder.setAttribute('src', topTracksArt)
@@ -381,9 +385,12 @@ let trackLink = document.createElement("a")
               var topArtists = response.items
               var topArtistName = response.items[0].name
               var topArtistImgUrl = response.items[0].images[0].url
+              var topArtistLink = topArtists[0].external_urls.spotify
 
-              let allTimeTopArtistHolder = document.createElement("div")
+              let allTimeTopArtistHolder = document.createElement("a")
               allTimeTopArtistHolder.setAttribute('class', 'all-time-top-artist')
+              allTimeTopArtistHolder.setAttribute('href', topArtistLink)
+              allTimeTopArtistHolder.setAttribute('target', "_blank")
 
               let topArtistTag = document.createElement("h2")
               topArtistTag.innerHTML = "TOP ARTIST"
@@ -416,6 +423,7 @@ let trackLink = document.createElement("a")
                 let artistImgHolder = document.createElement("img")
 
                 artistLink.setAttribute('href', artistLinks)
+                artistLink.setAttribute('target', "_blank")
                 container.setAttribute('class', 'topArtistContainer')
                 artistHolder.setAttribute('class', 'artistHolder')
                 artistImgHolder.setAttribute('src', artistArt)
@@ -453,6 +461,7 @@ let trackLink = document.createElement("a")
                 let trackPicHolder = document.createElement("img")
 
                 recTrackLink.setAttribute('href', recTrackLinks)
+                recTrackLink.setAttribute('target', "_blank")
                 container.setAttribute('class', 'recTrackContainer')
                 trackHolder.setAttribute('class', 'trackHolder')
                 trackPicHolder.setAttribute('class', 'recTrackArt')
