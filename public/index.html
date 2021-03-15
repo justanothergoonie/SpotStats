@@ -310,6 +310,7 @@
             success: function (response) {
               var topTracks = response.items
               var topTrack = topTracks[0].name
+              // var trackLink = topTracks
               var topTrackArtist = topTracks[0].artists[0].name
               
               let allTimeTopTrackHolder = document.createElement("div")
@@ -338,12 +339,18 @@
 
               console.log(topTracks[0].name)
               for (let song in topTracks) {
+               
                 var topTracksArt = topTracks[song].album.images[0].url
-                
+                var topTracksLinks = topTracks[song].external_urls.spotify
+
+let trackLink = document.createElement("a")
                 let container = document.createElement("div")
+                
                 let topTracksHolder = document.createElement("div")
                 let topTracksImgHolder = document.createElement("img")
 
+                trackLink.setAttribute('src', topTracksLinks)
+                // console.log(trackLink)
                 container.setAttribute('class', 'topArtistContainer')
                 topTracksHolder.setAttribute('class', 'topTracksHolder')
                 topTracksImgHolder.setAttribute('src', topTracksArt)
@@ -353,7 +360,8 @@
 
                 topTrackTemplate = Handlebars.compile(topTracksSource)
 
-                topTracksPlaceholder.appendChild(container)
+                topTracksPlaceholder.appendChild(trackLink)
+                trackLink.appendChild(container)
                 container.appendChild(topTracksHolder)
                 container.appendChild(topTracksImgHolder)
                 
@@ -398,23 +406,28 @@
 
 
               for (let artist in topArtists) {
+                // console.log(topArtists[artist].external_urls.spotify)
                 var artistArt = topArtists[artist].images[0].url
+                var artistLinks = topArtists[artist].external_urls.spotify
 
+                let artistLink = document.createElement("a")
                 let container = document.createElement("div")
                 let artistHolder = document.createElement("div")
                 let artistImgHolder = document.createElement("img")
 
+                artistLink.setAttribute('src', artistLinks)
                 container.setAttribute('class', 'topArtistContainer')
                 artistHolder.setAttribute('class', 'artistHolder')
                 artistImgHolder.setAttribute('src', artistArt)
                 artistImgHolder.setAttribute('class', 'artistArt')
 
                 artistHolder.innerHTML = topArtistsTemplate(topArtists[artist])
-                // console.log(topArtists[artist].images[0].url)
 
                 topArtistsTemplate = Handlebars.compile(topArtistsSource)
 
-                topArtistsPlaceholder.appendChild(container)
+
+                topArtistsPlaceholder.appendChild(artistLink)
+                artistLink.appendChild(container)
                 container.appendChild(artistHolder)
                 container.appendChild(artistImgHolder)
 
@@ -428,17 +441,18 @@
               'Authorization': 'Bearer ' + access_token
             },
             success: function (response) {
-              // console.log("Recently Played: " )
-              // console.log( response )
               var recTrack = response.items
 
               for (let indTrack in recTrack) {
                 var albumArt = recTrack[indTrack].track.album.images[0].url
+                var recTrackLinks = recTrack[indTrack].track.external_urls.spotify
 
+                let recTrackLink = document.createElement("a")
                 let container = document.createElement("div")
                 let trackHolder = document.createElement("div")
                 let trackPicHolder = document.createElement("img")
 
+                recTrackLink.setAttribute('href', recTrackLinks)
                 container.setAttribute('class', 'recTrackContainer')
                 trackHolder.setAttribute('class', 'trackHolder')
                 trackPicHolder.setAttribute('class', 'recTrackArt')
@@ -448,7 +462,8 @@
 
                 recentTrackTemplate = Handlebars.compile(recentTrackSource)
 
-                recentTrackPlaceholder.appendChild(container)
+                recentTrackPlaceholder.appendChild(recTrackLink)
+                recTrackLink.appendChild(container)
                 container.appendChild(trackHolder)
                 container.appendChild(trackPicHolder)
 
